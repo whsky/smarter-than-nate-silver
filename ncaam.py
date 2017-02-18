@@ -120,77 +120,19 @@ for year in years:
     results_wiki.append(tab_results)
 
 
-#####
-#http://sportsdata.wfmz.com/
-####
-#   Try to get all season game stats
-######
-import pands as pd
-from datetime import datetime, timedelta
-
-years = [2010, 2011, 2012, 2013, 2014, 2015, 2016]
-for year in years:
-    start,end = datetime(year, 11, 1), datetime(year + 1, 4, 30)
-    dates = [start + timedelta(days=i) for i in range((end-start).days+1)]
-
-    df = pd.DataFrame()
-    for dte in dates:
-        print dte
-        yr = str(dte.year)
-        game_day = '{:02d}'.format(dte.month)+'{:02d}'.format(dte.day)
-        if dte.month >= 11:
-            season = str(dte.year) + '-' + str(dte.year + 1)
-        elif dte.month <= 5:
-            season = str(dte.year - 1) + '-' + str(dte.year)
-
-        base_url = 'http://sportsdata.wfmz.com'
-        url3 = base_url + "/sports-scores/College-Basketball-Scores-Matchups.aspx?Year={0}&Period={1}&CurrentSeason={2}".format(yr, game_day, season)
-        req3 = requests.get(url3)
-        soup3 = BeautifulSoup(req3.text, 'html.parser')
-        # boxscore = soup3.find_all('a', href=re.compile('^/basketball/ncaab-boxscores.aspx'))
-        boxscore = soup3.find_all('a', href=re.compile('/boxscore'))
-        if len(boxscores)==0:
-            break
-        print '#', len(boxscore), ' games scraped.'
-
-        for box in boxscore:
-            box_link = base_url + box['href']
-            #Need to repeat for each boxscore link in the page
-            req_box = requests.get(box_link)
-            soup_box = BeautifulSoup(req_box.text, 'html.parser')
-            teams = soup_box.select('td.sdi-datacell > strong')
-            if len(teams)==0:
-                break
-            team_names = [teams[0].text, teams[2].text]
-            score = soup_box('span', attrs={'class':"sdi-font-highlight-colour"})
-            score1 = int(score[1].text)
-            score2 = int(score[2].text)
-            #Need to repeat for both teams boxscore table:
-            for tble in range(1,3,1):
-                data_table = soup_box.find_all('table')
-                rows = data_table[tble].find_all('tr')
-                team_results = []
-                for row in rows:
-                    cols = row.find_all('td')
-                    cols = [ele.text.strip() for ele in cols]
-                    team_results.append([ele for ele in cols if ele])
-                df2 = pd.DataFrame(team_results[2:len(team_results)-2], columns=team_results[1])
-                df2.insert(0, 'TEAM', [team_names[tble-1] for idx in range(len(df2))])
-                df2.insert(1, 'MATCH', [team_names[0] + ' vs. ' + team_names[1] for idx in range(len(df2))])
-                df2.insert(2, 'DATE', [dte for idx in range(len(df2))])
-                df = df.append(df2)
-    print "Writing ", str(season), " game data to csv"
-    filepath = '/Users/siannaccone/Documents/galvanize/project/' + str(season) + '_gamedata.csv'
-
-    df = df.replace(r'[^\x00-\x7F]', '', regex=True)
-    df.to_csv(filepath)
-
 ###################
 # Clean up data
 ##################
 
-#Fix minutes from string 'xx:xx' to int xx.x
+#Fix minutes from string 'xx:xx' to float xx.x
 def fixTime(timeStr):
+    '''
+    INPUT: String with a Player's game-time in Min:Sec
+    OUTPUT: Float decimal value of minutes played
+    We also need to check for the string "DNP" which
+        signifies "Did Not Play" at set those values
+        to zero.
+    '''
     if timeStr == 'DNP':
         return 0.0
     else:
@@ -203,6 +145,11 @@ df['MIN'] = df['MIN'].apply(fixTime)
 
 #Fix "MATCH" and "TEAM" columns to remove '\n'
 def remNewline(inputStr):
+    '''
+    INPUT: string
+    OUTPUT: string
+    Clean up and remove newline chars from strings
+    '''
     return re.sub(r'\n', '', inputStr)
 
 df['MATCH'] = df['MATCH'].apply(remNewline)
@@ -210,16 +157,45 @@ df['TEAM'] = df['TEAM'].apply(remNewline)
 
 #We need to split the shots-made vs shots-attempted into sperate columns
 def shotsMade(shotStr):
+    '''
+    INPUT: string with "shotsMade-shotsAttempted" format
+    OUTPUT: integer with just shotsMade
+    '''
     if type(shotStr) == str:
         shots = shotStr.split('-')
         return int(shots[0])
 
 def shotsAttmp(shotStr):
+    '''
+    INPUT: string with "shotsMade-shotsAttempted" format
+    OUTPUT: integer with just shotsAttempted
+    '''
     if type(shotStr) == str:
         shots = shotStr.split('-')
         return int(shots[1])
 
 df['3GM'] = df['3GM-A'].apply(shotsMade)
 df['3GA'] = df['3GM-A'].apply(shotsAttmp)
+#Sometimes is '3GM-A' and sometimes is '3PM-A'??
+df['3GM'] = df['3PM-A'].apply(shotsMade)
+df['3GA'] = df['3PM-A'].apply(shotsAttmp)
+del df['3PM-A']
 
-df.drop['3GM-A']
+#Picking one team's game out:
+gm1 = df[(df['DATE'] == '2015-11-13') & (df['TEAM'] == 'Vermont\n')]
+
+
+def getAllTeamGames(team_name, df):
+    '''
+    INPUT: string, pandas DF - valid team name, game stats DF
+    OUTPUT: pandas DF with subset of stats for team in the
+        given season
+    '''
+    return df[df['TEAM'] == team_name]
+
+def getGameByDate(date, df):
+    '''
+    INPUT: string, pandas DF - date string for games, game stats DF
+    OUTPUT: pandas DF with subset of games played on the given date
+    '''
+    return df[df['DATE'] == date]
