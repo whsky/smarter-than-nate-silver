@@ -199,3 +199,40 @@ def getGameByDate(date, df):
     OUTPUT: pandas DF with subset of games played on the given date
     '''
     return df[df['DATE'] == date]
+
+def getPointSpread(df):
+    '''
+    INPUT: pandas dataframe
+    OUTPUT: point spreads (margins of victory) for each matchup in the dataframe where player stats are available for both teams.
+    We want to be able to calculate the margin of victory for a game.
+    '''
+    #Get all unique matchups from the dataframe:
+    unq_mtch = df['MATCH'].unique()
+    pt_spread = []
+    for idx in range(len(unq_mtch)):
+        match_results = df[df['MATCH'] == unq_mtch[idx]].groupby(['TEAM'], sort=False)['PTS'].sum()
+        if len(match_results) == 2:
+            pt_spread.append(match_results[0] - match_results[1])
+        else:
+            pt_spread.append(None)
+    return pt_spread
+
+def getTeamAsst(df):
+    '''
+    INPUT: pandas dataframe
+    OUTPUT: tuple with delta of assists between teams for each matchup in the dataframe where player stats are available for both teams.
+    '''
+    #Get all unique matchups from the dataframe:
+    unq_mtch = df['MATCH'].unique()
+    team_assts = []
+    for idx in range(len(unq_mtch)):
+        match_assts = df[df['MATCH'] == unq_mtch[idx]].groupby(['TEAM'], sort=False)['A'].sum()
+        if len(match_assts) == 2:
+            team_assts.append(match_assts[0] - match_assts[1])
+        else:
+            team_assts.append(None)
+    return team_assts
+
+# We can get team averages / max / mode of the features in the matrix
+#   and use those to plot against pt_spread and look for
+#   relationships...
