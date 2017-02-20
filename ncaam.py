@@ -233,6 +233,34 @@ def getTeamAsst(df):
             team_assts.append(None)
     return team_assts
 
+def getStarters(df):
+    '''
+    INPUT: pandas dataframe
+    OUTPUT: pandas dataframe where we have selected the top 5 players
+        from each team in the matchup (by minutes played) and reshaped to have one long row with palyer stats stacked horizontally instead of vertically.
+    This will be our input shape for our Neural Net.
+    '''
+    df_out = pd.DataFrame()
+    unq_mtch = df['MATCH'].unique()
+    for idx in range(len(unq_mtch)):
+        match = df[df['MATCH'] == unq_mtch[idx]]
+        row_match = []
+        if len(match['TEAM'].unique()) == 2:
+            for team in match['TEAM'].unique():
+                teamdf = match[match['TEAM'] == team]
+                top5 = teamdf.sort('MIN', ascending=False)[:5]
+                row_match.append(top5.unstack())
+                print row_match
+            df_out = df_out.append(pd.DataFrame(row_match), ignore_index=True)
+        else:
+            break
+    return df_out
+
+#^^^^^^^^^
+# Need to fix this, output looks funky (lot's of Nan's when second row added)!
+#
+
+
 # We can get team averages / max / mode of the features in the matrix
 #   and use those to plot against pt_spread and look for
 #   relationships...
