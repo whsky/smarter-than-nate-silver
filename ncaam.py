@@ -200,11 +200,12 @@ def getGameByDate(date, df):
     '''
     return df[df['DATE'] == date]
 
-def getPointSpread(df):
+def getPointSpread(df, keepNan=True):
     '''
-    INPUT: pandas dataframe
-    OUTPUT: point spreads (margins of victory) for each matchup in the dataframe where player stats are available for both teams.
-    We want to be able to calculate the margin of victory for a game.
+    INPUT: pandas dataframe, Boolean if a None should be filled in where Player level stats aren't available for both teams in that game.
+    OUTPUT: list of point spreads (margins of victory) for each matchup in the dataframe where player stats are available for both teams.
+
+    We want to be able to calculate the margin of victory for all games in a given dataframe.
     '''
     #Get all unique matchups from the dataframe:
     unq_mtch = df['MATCH'].unique()
@@ -213,7 +214,7 @@ def getPointSpread(df):
         match_results = df[df['MATCH'] == unq_mtch[idx]].groupby(['TEAM'], sort=False)['PTS'].sum()
         if len(match_results) == 2:
             pt_spread.append(match_results[0] - match_results[1])
-        else:
+        elif keepNan:
             pt_spread.append(None)
     return pt_spread
 
@@ -238,29 +239,37 @@ def getStarters(df):
     INPUT: pandas dataframe
     OUTPUT: pandas dataframe where we have selected the top 5 players
         from each team in the matchup (by minutes played) and reshaped to have one long row with palyer stats stacked horizontally instead of vertically.
-    This will be our input shape for our Neural Net.
+    This will be our input shape for our Neural Net. Right now, this is pretty slow...vectorize maybe?
     '''
     df_out = pd.DataFrame()
     unq_mtch = df['MATCH'].unique()
-    for idx in range(len(unq_mtch)):
+    for idx in range(0, len(unq_mtch), 1):
+        # print idx
         match = df[df['MATCH'] == unq_mtch[idx]]
         row_match = []
         if len(match['TEAM'].unique()) == 2:
             for team in match['TEAM'].unique():
-                teamdf = match[match['TEAM'] == team]
-                top5 = teamdf.sort('MIN', ascending=False)[:5]
-                row_match.append(top5.unstack())
-                print row_match
-            df_out = df_out.append(pd.DataFrame(row_match), ignore_index=True)
-        else:
-            break
+                # print team
+                top5 = match[match['TEAM'] == team].sort('MIN', ascending=False)[:5]
+                row_match.extend(top5.stack().values)
+            df_out = df_out.append(pd.DataFrame([row_match]))
     return df_out
 
-#^^^^^^^^^
-# Need to fix this, output looks funky (lot's of Nan's when second row added)!
-#
+
 
 
 # We can get team averages / max / mode of the features in the matrix
 #   and use those to plot against pt_spread and look for
 #   relationships...
+
+#############################################################
+# Things to do:
+#--------------
+#     -Set up Neural Net
+#         This will take output from getStarters() and use getPointSpread() as the target.
+#     -Set up KNN / Recommender to look for most similar matchups
+#     -Set up Train/Test splits
+#         how many seasons to look at?
+#         how to seperate tournament games from regular season?
+#     --Make tests?
+#############################################################
