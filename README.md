@@ -13,18 +13,16 @@ _So why the beef with Nate, dog?_
 
 Most of his predictions (as well as others') rely heavily on stats like RPI and Elo scores which are themselves based mostly on the ranking of the team going into the tournament. So, it leans toward picking a winning team based on the higher seed. You can see it based on who fivthirtyeight has picked to be in the Final Four from the last three tournaments:
 
-|**Team**|**Seed**|**Made Final Four**
------|-----|:-----:|-----
+|**Year**|**Team**|**Seed**|**Made Final Four**
+-----|-----|-----|:-----:|-----
 2016|Kansas|1|No
 |UNC|1|Yes
 |Mich. St.|2|No
 |Oklahoma|2|No
-| | |
 2015|Kentucky|1|Yes
 |Villanova|1|No
 |Duke|1|Yes (won championship)
 |Arizona|2|No
-| | |
 2014|Florida|1|Yes
 |Arizona|1|No
 |Loisville|4|No
