@@ -1,5 +1,4 @@
 ##################################################
-# Steve Iannaccone
 #   Feb. 2017
 #
 # Webscraping to get all NCAA div1 basketball
@@ -10,9 +9,10 @@
 # Have no fear! scrapey.py to the rescue!  :D
 ##################################################
 
-import pands as pd
+import pandas as pd
 from datetime import datetime, timedelta
 import urllib2
+import requests
 from bs4 import BeautifulSoup
 import re
 
