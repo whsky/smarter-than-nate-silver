@@ -1,0 +1,728 @@
+cnumpy.core.multiarray
+_reconstruct
+p1
+(cnumpy
+ndarray
+p2
+(I0
+tS'b'
+tRp3
+(I1
+(I351
+tcnumpy
+dtype
+p4
+(S'O8'
+I0
+I1
+tRp5
+(I3
+S'|'
+NNNI-1
+I-1
+I63
+tbI00
+(lp6
+S'Vermont'
+p7
+aS'Eastern Michigan'
+p8
+aS'Colorado'
+p9
+aS'Iowa St.'
+p10
+aS'Northwestern St.'
+p11
+aS'Mississippi'
+p12
+aS'South Dakota'
+p13
+aS'Wright St.'
+p14
+aS'Wagner'
+p15
+aS"St. John's"
+p16
+aS'Texas Rio Grande Valley'
+p17
+aS'Miami-Florida'
+p18
+aS'Presbyterian'
+p19
+aS'Furman'
+p20
+aS'Niagara'
+p21
+aS'Old Dominion'
+p22
+aS'North Carolina'
+p23
+aS'Temple'
+p24
+aS'Colgate'
+p25
+aS'George Mason'
+p26
+aS'Chattanooga'
+p27
+aS'Georgia'
+p28
+aS'North Carolina Central'
+p29
+aS'Clemson'
+p30
+aS'Dartmouth'
+p31
+aS'Seton Hall'
+p32
+aS'N.C. Asheville'
+p33
+aS'Tennessee'
+p34
+aS'Canisius'
+p35
+aS'Hofstra'
+p36
+aS'Prairie View A&M'
+p37
+aS'VCU'
+p38
+aS'Lafayette'
+p39
+aS'George Washington'
+p40
+aS'James Madison'
+p41
+aS'Richmond'
+p42
+aS'Lehigh'
+p43
+aS'Syracuse'
+p44
+aS'Florida Atlantic'
+p45
+aS'Michigan St'
+p46
+aS'Fairleigh Dickinson'
+p47
+aS'Villanova'
+p48
+aS'Princeton'
+p49
+aS'Rider'
+p50
+aS'Indiana - Purdue'
+p51
+aS'Indiana St.'
+p52
+aS'Tennessee St.'
+p53
+aS'Loyola-Maryland'
+p54
+aS'Wis.-Milwaukee'
+p55
+aS'Denver'
+p56
+aS'Texas Southern'
+p57
+aS'New Mexico'
+p58
+aS'Maine'
+p59
+aS'Connecticut'
+p60
+aS'Ball St.'
+p61
+aS'Bradley'
+p62
+aS'Massachusetts Lowell'
+p63
+aS'Northwestern'
+p64
+aS'Hartford'
+p65
+aS'Central Conn. St.'
+p66
+aS'MD Baltimore Cty'
+p67
+aS'Wake Forest'
+p68
+aS'William & Mary'
+p69
+aS'N.C. State'
+p70
+aS'Maryland - E. Shore'
+p71
+aS'Kansas St.'
+p72
+aS'Grambling State'
+p73
+aS'East Carolina'
+p74
+aS'Drexel'
+p75
+aS"St. Joseph's"
+p76
+aS'San Francisco'
+p77
+aS'Illinois-Chicago'
+p78
+aS'Tenn-Martin'
+p79
+aS'Oklahoma St.'
+p80
+aS'American U.'
+p81
+aS'Rhode Island'
+p82
+aS'Troy'
+p83
+aS'South Florida'
+p84
+aS'North Dakota State'
+p85
+aS'UC Davis'
+p86
+aS'Brown'
+p87
+aS"St. Peter's"
+p88
+aS'Wofford'
+p89
+aS'Missouri'
+p90
+aS'High Point'
+p91
+aS'Texas Tech'
+p92
+aS'Belmont'
+p93
+aS'Marquette'
+p94
+aS'Green Bay'
+p95
+aS'Stanford'
+p96
+aS'McNeese St.'
+p97
+aS'Louisiana State'
+p98
+aS'Boise St.'
+p99
+aS'Montana'
+p100
+aS'Western Illinois'
+p101
+aS'Wisconsin'
+p102
+aS'Portland St.'
+p103
+aS'Grand Canyon'
+p104
+aS'Eastern Washington'
+p105
+aS'Mississippi St.'
+p106
+aS'Stephen F. Austin'
+p107
+aS'Baylor'
+p108
+aS'Gardner-Webb'
+p109
+aS'Iowa'
+p110
+aS'Pacific'
+p111
+aS'Arizona'
+p112
+aS'Pepperdine'
+p113
+aS'Fresno St.'
+p114
+aS'Texas'
+p115
+aS'Washington'
+p116
+aS'Cal St. Fullerton'
+p117
+aS'Loyola Marymount'
+p118
+aS'Southern Utah'
+p119
+aS'Utah'
+p120
+aS'Montana St.'
+p121
+aS'Hawaii'
+p122
+aS'Fairfield'
+p123
+aS'Yale'
+p124
+aS'Jacksonville St.'
+p125
+aS'Central Michigan'
+p126
+aS'Quinnipiac'
+p127
+aS'Sacred Heart'
+p128
+aS'Robert Morris'
+p129
+aS'Pennsylvania'
+p130
+aS'No.Carolina A&T'
+p131
+aS'Purdue'
+p132
+aS'Northeastern'
+p133
+aS'Boston U'
+p134
+aS'Albany'
+p135
+aS'Kentucky'
+p136
+aS'Northern Kentucky'
+p137
+aS'West Virginia'
+p138
+aS'SE Missouri St.'
+p139
+aS'Dayton'
+p140
+aS'Morgan St.'
+p141
+aS'Virginia'
+p142
+aS'South Carolina State'
+p143
+aS'Charleston'
+p144
+aS'Siena'
+p145
+aS'Duke'
+p146
+aS'Western Carolina'
+p147
+aS'Cincinnati'
+p148
+aS"Mount St. Mary's"
+p149
+aS'Maryland'
+p150
+aS'Eastern Illinois'
+p151
+aS'Indiana'
+p152
+aS'Samford'
+p153
+aS'Louisville'
+p154
+aS'Miami (OH)'
+p155
+aS'Xavier'
+p156
+aS'Holy Cross'
+p157
+aS'Marist'
+p158
+aS'Coppin St.'
+p159
+aS'Eastern Kentucky'
+p160
+aS'Sacramento State'
+p161
+aS'Arizona State'
+p162
+aS'St. Francis (PA)'
+p163
+aS'Notre Dame'
+p164
+aS'Northern Colorado'
+p165
+aS'Kansas'
+p166
+aS'San Diego'
+p167
+aS'Southern California'
+p168
+aS'Cornell'
+p169
+aS'Georgia Tech'
+p170
+aS'Missouri St.'
+p171
+aS'Oral Roberts'
+p172
+aS'North Florida'
+p173
+aS'Illinois'
+p174
+aS'Austin Peay'
+p175
+aS'Vanderbilt'
+p176
+aS'Delaware'
+p177
+aS'Delaware State'
+p178
+aS'CSU Northridge'
+p179
+aS'Northern Illinois'
+p180
+aS'Air Force'
+p181
+aS'Southern Illinois'
+p182
+aS'Southern'
+p183
+aS'Arkansas'
+p184
+aS'UC Santa Barbara'
+p185
+aS'Nebraska Omaha'
+p186
+aS'Binghamton'
+p187
+aS'St. Bonaventure'
+p188
+aS'Charleston Southern'
+p189
+aS'Wichita St.'
+p190
+aS'Texas-San Antonio'
+p191
+aS'Loyola-Chicago'
+p192
+aS'Northern Arizona'
+p193
+aS'Washington St.'
+p194
+aS'Elon University'
+p195
+aS'Charlotte'
+p196
+aS'IUPU - Ft. Wayne'
+p197
+aS'Valparaiso'
+p198
+aS'Kennesaw St.'
+p199
+aS'Alabama'
+p200
+aS'Utah St.'
+p201
+aS'Weber St.'
+p202
+aS'Alabama A&M'
+p203
+aS'Tulane'
+p204
+aS'Utah Valley'
+p205
+aS'Brigham Young'
+p206
+aS'UMKC'
+p207
+aS'Minnesota'
+p208
+aS'Houston Baptist'
+p209
+aS'New Mexico St.'
+p210
+aS'Nevada'
+p211
+aS'Coastal Carolina'
+p212
+aS'Arkansas St.'
+p213
+aS'SIU - Edwardsville'
+p214
+aS'UAB'
+p215
+aS'Auburn'
+p216
+aS'Southeastern Louisiana'
+p217
+aS'Texas Christian'
+p218
+aS'Florida'
+p219
+aS'Navy'
+p220
+aS'South Carolina Upstate'
+p221
+aS'Texas A&M'
+p222
+aS'Illinois St.'
+p223
+aS'San Diego St.'
+p224
+aS'Jackson State'
+p225
+aS'Oregon'
+p226
+aS'Lipscomb'
+p227
+aS'Santa Clara'
+p228
+aS'Cal Poly SLO'
+p229
+aS'UNLV'
+p230
+aS'Arkansas-Pine Bluff'
+p231
+aS'Seattle'
+p232
+aS'Monmouth-NJ'
+p233
+aS'UCLA'
+p234
+aS'Rice'
+p235
+aS'California'
+p236
+aS'Colorado St.'
+p237
+aS'Northern Iowa'
+p238
+aS'Howard'
+p239
+aS'Massachusetts'
+p240
+aS'New Orleans'
+p241
+aS'Bowling Green'
+p242
+aS'St. Francis (NY)'
+p243
+aS'Boston College'
+p244
+aS'Towson'
+p245
+aS'La Salle'
+p246
+aS'Alabama St.'
+p247
+aS'Virginia Tech'
+p248
+aS'Norfolk State'
+p249
+aS'South Carolina'
+p250
+aS'Central Florida'
+p251
+aS'Davidson'
+p252
+aS'New Jersey Tech'
+p253
+aS'Bryant'
+p254
+aS'Southern Miss'
+p255
+aS'Memphis'
+p256
+aS'Fordham'
+p257
+aS'Texas-Arlington'
+p258
+aS'Cleveland St.'
+p259
+aS'Akron'
+p260
+aS'Creighton'
+p261
+aS'Idaho'
+p262
+aS'San Jose St.'
+p263
+aS'Radford'
+p264
+aS'Georgetown'
+p265
+aS'VMI'
+p266
+aS'Penn St.'
+p267
+aS'Florida Gulf Coast'
+p268
+aS'Ohio'
+p269
+aS'Jacksonville'
+p270
+aS'Appalachian St.'
+p271
+aS'Hampton'
+p272
+aS'Winthrop'
+p273
+aS'Central Arkansas'
+p274
+aS'Tulsa'
+p275
+aS'Harvard'
+p276
+aS'Providence'
+p277
+aS'Youngstown St.'
+p278
+aS'Kent St.'
+p279
+aS'The Citadel'
+p280
+aS'Butler'
+p281
+aS'Sam Houston St.'
+p282
+aS'Southern Methodist'
+p283
+aS'Mississippi Valley State'
+p284
+aS'Nebraska'
+p285
+aS'Western Michigan'
+p286
+aS'DePaul'
+p287
+aS'Ohio St.'
+p288
+aS'Rutgers'
+p289
+aS'Iona'
+p290
+aS'Nicholls State'
+p291
+aS'Florida St.'
+p292
+aS'Louisiana-Monroe'
+p293
+aS'Florida A&M'
+p294
+aS'Saint Louis'
+p295
+aS'UC Irvine'
+p296
+aS'Bucknell'
+p297
+aS'Army'
+p298
+aS'Evansville'
+p299
+aS'Stetson'
+p300
+aS'South Alabama'
+p301
+aS'Portland'
+p302
+aS'Wyoming'
+p303
+aS'Duquesne'
+p304
+aS'Louisiana-Lafayette'
+p305
+aS'Bethune-Cookman'
+p306
+aS'LIU Brooklyn'
+p307
+aS'Morehead St.'
+p308
+aS'Georgia Southern'
+p309
+aS'Drake'
+p310
+aS'Tennessee Tech'
+p311
+aS'Buffalo'
+p312
+aS'Mercer'
+p313
+aS'Michigan'
+p314
+aS'Campbell'
+p315
+aS'Savannah State'
+p316
+aS'NC-Wilmington'
+p317
+aS'Chicago St.'
+p318
+aS'South Dakota State'
+p319
+aS'Columbia'
+p320
+aS'Manhattan'
+p321
+aS"St. Mary's"
+p322
+aS'Lamar'
+p323
+aS'Long Beach St.'
+p324
+aS'New Hampshire'
+p325
+aS'Louisiana Tech'
+p326
+aS'Cal. State - Bakersfield'
+p327
+aS'Oregon St.'
+p328
+aS'East Tennessee St.'
+p329
+aS'Oklahoma'
+p330
+aS'Liberty'
+p331
+aS'North Dakota'
+p332
+aS'Middle Tennessee St.'
+p333
+aS'Murray St.'
+p334
+aS'Incarnate Word'
+p335
+aS'Oakland'
+p336
+aS'Western Kentucky'
+p337
+aS'Toledo'
+p338
+aS'Houston'
+p339
+aS'Gonzaga'
+p340
+aS'Texas A&M CC'
+p341
+aS'Alcorn St.'
+p342
+aS'UC Riverside'
+p343
+aS'Marshall'
+p344
+aS'Stony Brook'
+p345
+aS'Florida International'
+p346
+aS'Longwood'
+p347
+aS'Idaho State'
+p348
+aS'Detroit'
+p349
+aS'Pittsburgh'
+p350
+aS'NC-Greensboro'
+p351
+aS'Arkansas-Little Rock'
+p352
+aS'Texas State'
+p353
+aS'Texas-El Paso'
+p354
+aS'Abilene Christian'
+p355
+aS'North Texas'
+p356
+aS'Georgia St'
+p357
+atb.

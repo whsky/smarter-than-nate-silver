@@ -10,6 +10,7 @@ from sklearn.externals import joblib
 from datetime import datetime
 import itertools
 from fuzzywuzzy import process
+
 #############################
 # Functions to clean-up data:
 #############################
@@ -111,6 +112,7 @@ def splitSeason(df):
     '''
     INPUT: pandas dataframe with player stats
     OUTPUT: 2 dataframes split between regular season and March Madness games.
+    =========================================================================
     This will be our train/test split for each season
         '''
     TourneyDates = {'2007': '2007-03-11',
@@ -149,19 +151,23 @@ def getGameByDate(date, df):
 
 def getPointSpread(df, keepNan=False):
     '''
-    INPUT: pandas dataframe, Boolean if a None should be filled in where Player level stats aren't available for both teams in that game.
-    OUTPUT: list of point spreads (margins of victory) for each matchup in the dataframe where player stats are available for both teams.
-
-    We want to be able to calculate the margin of victory for all games in a given dataframe.
+    INPUT: pandas dataframe, Boolean if a 'None' should be filled in where
+        Player-level stats aren't available for both teams in that game.
+    OUTPUT: list of point spreads (margins of victory) for each matchup in the
+        dataframe where player stats are available for both teams.
+    =========================================================================
+    We want to be able to calculate the margin of victory for all games in a
+        given dataframe.
     '''
-    #Get all unique matchups from the dataframe: <<<Need to fix for repeat matchups!
+    #Get all unique matchups from the dataframe:
     pt_spread = []
     dates = df['DATE'].unique()
     for date in dates:
         df_date = df[df['DATE']==date]
         unq_mtch = df_date['MATCH'].unique()
         for idx in range(len(unq_mtch)):
-            match_results = df_date[df_date['MATCH'] == unq_mtch[idx]].groupby(['TEAM'], sort=False)['PTS'].sum()
+            match_results = df_date[df_date['MATCH'] == \
+                    unq_mtch[idx]].groupby(['TEAM'], sort=False)['PTS'].sum()
             if len(match_results) == 2:
                 pt_spread.append(match_results[0] - match_results[1])
             elif keepNan:
@@ -171,13 +177,15 @@ def getPointSpread(df, keepNan=False):
 def getTeamAsst(df):
     '''
     INPUT: pandas dataframe
-    OUTPUT: tuple with delta of assists between teams for each matchup in the dataframe where player stats are available for both teams.
+    OUTPUT: tuple with delta of assists between teams for each matchup in the
+        dataframe where player stats are available for both teams.
     '''
     #Get all unique matchups from the dataframe:
     unq_mtch = df['MATCH'].unique()
     team_assts = []
     for idx in range(len(unq_mtch)):
-        match_assts = df[df['MATCH'] == unq_mtch[idx]].groupby(['TEAM'], sort=False)['A'].sum()
+        match_assts = df[df['MATCH'] == \
+                unq_mtch[idx]].groupby(['TEAM'], sort=False)['A'].sum()
         if len(match_assts) == 2:
             team_assts.append(match_assts[0] - match_assts[1])
         else:
@@ -195,14 +203,14 @@ def bench_warmers(df):
 
     matches = df['MATCH'].unique()
     for match in matches:
-        # match = 'Wofford vs. Stanford'
         gameDF = df[df['MATCH'] == match]
         if len(gameDF['TEAM'].unique()) == 2:
             #Let's find out who sat this game out:
             team1 = gameDF['TEAM'].unique()[0]
             t1_roster = roster_dict[team1]
             t1_player = np.array(gameDF[gameDF['TEAM'] == team1]['PLAYER'])
-            didnt_play1 = t1_roster[np.where([x not in t1_player for x in t1_roster])]
+            didnt_play1 = \
+                t1_roster[np.where([x not in t1_player for x in t1_roster])]
             #Now make a new DF with zeros for numeric stats:
             didnt_playDF1 = pd.DataFrame(columns=gameDF.columns)
             didnt_playDF1['PLAYER'] = didnt_play1
@@ -214,7 +222,8 @@ def bench_warmers(df):
             team2 = gameDF['TEAM'].unique()[1]
             t2_roster = roster_dict[team2]
             t2_player = np.array(gameDF[gameDF['TEAM'] == team2]['PLAYER'])
-            didnt_play2 = t2_roster[np.where([x not in t2_player for x in t2_roster])]
+            didnt_play2 = \
+                t2_roster[np.where([x not in t2_player for x in t2_roster])]
             #Now make a new DF with zeros for numeric stats:
             didnt_playDF2 = pd.DataFrame(columns=gameDF.columns)
             didnt_playDF2['PLAYER'] = didnt_play2
@@ -232,10 +241,15 @@ def bench_warmers(df):
 
 def NNreshape(df, numPlayers = 15):
     '''
-    INPUT: pandas dataframe, int with number of players per team to keep as NN input.
-    OUTPUT: pandas dataframe where we have selected the top 5 players
-        from each team in the matchup (by minutes played) and reshaped to have one long row with palyer stats stacked horizontally instead of vertically. And just the numeric columns.
-    This will be our input shape for our Neural Net. Right now, this is pretty slow...vectorize maybe?
+    INPUT: pandas dataframe, int with number of players per team to keep as
+        NN input.
+    OUTPUT: pandas dataframe where we have selected the top 'numPlayers' of
+        players from each team in the matchup (by minutes played) and reshaped
+        to have one long row with palyer stats stacked horizontally instead of
+        vertically. And just the numeric columns.
+    =========================================================================
+    This will be our input shape for our Neural Net. Right now, this is pretty
+        slow...vectorize maybe?
     '''
     t1 = datetime.now()
     df_out = pd.DataFrame()
@@ -249,11 +263,13 @@ def NNreshape(df, numPlayers = 15):
             row_match = []
             if len(match['TEAM'].unique()) == 2:
                 for team in match['TEAM'].unique():
-                    # print team
-                    top5 = match[match['TEAM'] == team].sort('MIN', ascending=False)#.iloc[:5]
-                    #pad out to 15 players regaurdless of number of player stats for the game in question
+                    top5 = \
+                      match[match['TEAM'] == team].sort('MIN', ascending=False)
+                    # pad out to 15 players reguardless of number of player
+                    #    stats for the game in question
                     if top5.shape[0] < numPlayers:
-                        pad = np.zeros(shape=(numPlayers - top5.shape[0],top5.shape[1]))
+                        pad = np.zeros(shape=(numPlayers - top5.shape[0],
+                                                top5.shape[1]))
                         pad = pd.DataFrame(pad)
                     else:
                         top5 = top5.iloc[:numPlayers]
@@ -269,9 +285,12 @@ def NNreshape(df, numPlayers = 15):
 
 def getRollingAvg(df, num=5):
     '''
-    INPUT: pandas dataframe of game stats, int with number of games to use for rolling avg.
+    INPUT: pandas dataframe of game stats, int with number of games to use for
+        rolling avg.
     OUTPUT: pandas dataframe
-    We want to replace game performance data with that player's rolling average from the last 'num' games.
+    =========================================================================
+    We want to replace game performance data with that player's rolling average
+        from the last 'num' games.
     '''
     df_out = df.copy()
     for i in range(len(df['PLAYER'].unique())):
@@ -289,7 +308,8 @@ def getPlayerAvg(df):
     df_out = pd.DataFrame()
     teams = df['TEAM'].unique()
     for idx in range(0, len(teams), 1):
-        players_df = df[df['TEAM'] == teams[idx]].groupby(['PLAYER'], sort=False).mean()
+        players_df = df[df['TEAM'] == teams[idx]].groupby(['PLAYER'],
+            sort=False).mean()
         players_df['TEAM'] = [teams[idx]]*len(players_df)
         players_df['PLAYER'] = players_df.index
         df_out = df_out.append(players_df)
@@ -297,9 +317,15 @@ def getPlayerAvg(df):
 
 def replaceTourneyStats(df_tourney, df_player, round_=False):
     '''
-    INPUT: pandas dataframe with game stats from tournament results, pandas DF with season avgs for each player, and Boolean of whether or not to round off stats to integer values
-    OUTPUT: pandas dataframe with player stats replaced with their season average.
-    We want to hide player performance during the tournament during testing of our model. We will sub in that player's season avg to replace their actual performance for each game.
+    INPUT: pandas dataframe with game stats from tournament results, pandas DF
+        with season avgs for each player, and Boolean of whether or not to
+        round off stats to integer values
+    OUTPUT: pandas dataframe with player stats replaced with their season
+        average.
+    =========================================================================
+    We want to hide player performance during the tournament during testing of
+        our model. We will sub in that player's season avg to replace their
+        actual performance for each game.
     '''
     t1 = datetime.now()
     df_out = df_tourney.copy()
@@ -307,7 +333,6 @@ def replaceTourneyStats(df_tourney, df_player, round_=False):
     play_ind = df_player.index
     matches = []
     players = []
-    # dates = []
     for idx in range(0, len(df_tourney), 1):
         team = df_tourney.ix[indices[idx]]['TEAM']
         player = df_tourney.ix[indices[idx]]['PLAYER']
@@ -315,13 +340,12 @@ def replaceTourneyStats(df_tourney, df_player, round_=False):
         players.append(player)
         matches.append(df_tourney.ix[indices[idx]]['MATCH'])
         if player in play_ind:
-            df_out.ix[indices[idx]] = df_player[df_player['TEAM'] == team].loc[player]
+            df_out.ix[indices[idx]] = \
+                    df_player[df_player['TEAM'] == team].loc[player]
         else:
             print "ooops... ", player
     df_out['MATCH'] = matches
     df_out['PLAYER'] = players
-    # print len(matches), len(players), len(dates)
-    # df_out['DATE'] = dates
     t2 = datetime.now()
     t_del = t2 - t1
     run_time = divmod(t_del.total_seconds(), 60)
@@ -329,11 +353,15 @@ def replaceTourneyStats(df_tourney, df_player, round_=False):
     return df_out
 
 
-def getAllPreds(team_list, df_player, model):
+def getAllPreds(team_list, df_player, numPlayers, model):
     '''
-    INPUT: list of teams to compare, a pandas DF with player averages for the season, and a pickled model to use for predictions.
+    INPUT: list of teams to compare, a pandas DF with player averages for the
+        season, and a pickled model to use for predictions.
     OUTPUT: dict with key as team-pair, and value as predicted point spreads.
-    We want to compute all the predicted point spreads for all teams in the input -- this will be a square matrix (NxN for N teams)
+    =========================================================================
+    We want to compute all the predicted point spreads for all teams in the
+        input -- this will be a dict that is the equivalent of the
+        upper-echelon square matrix (NxN for N teams)
     ####
     Can check some pairs with:
         first5pairs = {k: mydict[k] for k in mydict.keys()[:5]}
@@ -341,7 +369,6 @@ def getAllPreds(team_list, df_player, model):
         max(mydict.iterkeys(), key=(lambda key: mydict[key])
     ####
     '''
-    numPlayers = 7
     dict_out = dict()
     np_out = np.zeros(shape = (len(team_list), len(team_list)))
     team_combos = list(itertools.combinations(team_list, 2))
@@ -351,11 +378,14 @@ def getAllPreds(team_list, df_player, model):
         if team[1] not in df['TEAM'].unique():
             print team[1]
         NNarray = []
-        df_team1 = df_player[df_player['TEAM'] == team[0]].sort('MIN', ascending=False)
-        df_team2 = df_player[df_player['TEAM'] == team[1]].sort('MIN', ascending=False)
+        df_team1 = df_player[df_player['TEAM'] == team[0]].sort('MIN',
+            ascending=False)
+        df_team2 = df_player[df_player['TEAM'] == team[1]].sort('MIN',
+            ascending=False)
 
         if df_team1.shape[0] < numPlayers:
-            pad = np.zeros(shape=(numPlayers - df_team1.shape[0], df_team1.shape[1]))
+            pad = np.zeros(shape=(numPlayers - df_team1.shape[0],
+                df_team1.shape[1]))
             pad = pd.DataFrame(pad)
         else:
             df_team1 = df_team1.iloc[:numPlayers]
@@ -364,7 +394,8 @@ def getAllPreds(team_list, df_player, model):
             NNarray.extend(pad.stack().values)
         #Repeat for second team:
         if df_team2.shape[0] < numPlayers:
-            pad = np.zeros(shape=(numPlayers - df_team2.shape[0], df_team2.shape[1]))
+            pad = np.zeros(shape=(numPlayers - df_team2.shape[0],
+                df_team2.shape[1]))
             pad = pd.DataFrame(pad)
         else:
             df_team2 = df_team2.iloc[:numPlayers]
@@ -381,7 +412,22 @@ def getTourneyTeams(year):
     OUTPUT: list of strings with teams that qualified that year
     '''
     tourney_teams = {'2016': \
-    ['Kansas', 'Villanova', 'Miami-Florida', 'California', 'Maryland', 'Arizona', 'Iowa', 'Colorado', 'Connecticut', 'Temple', 'Vanderbilt', 'Wichita St.', 'South Dakota State', 'Hawaii', 'Buffalo', 'N.C. Asheville', 'Austin Peay', 'Oregon', 'Oklahoma', 'Texas A&M', 'Duke', 'Baylor', 'Texas', 'Oregon St.', "St. Joseph's", 'Cincinnati', 'VCU', 'Northern Iowa', 'Yale', 'NC-Wilmington', 'Green Bay', 'Cal. State - Bakersfield', 'Holy Cross', 'Southern', 'North Carolina', 'Xavier', 'West Virginia', 'Kentucky', 'Indiana', 'Notre Dame', 'Wisconsin', 'Southern California', 'Providence', 'Pittsburgh', 'Michigan', 'Tulsa', 'Chattanooga', 'Stony Brook', 'Stephen F. Austin', 'Weber St.', 'Florida Gulf Coast', 'Fairleigh Dickinson', 'Virginia', 'Michigan St', 'Utah', 'Iowa St.', 'Purdue', 'Seton Hall', 'Dayton', 'Texas Tech', 'Butler', 'Syracuse', 'Gonzaga', 'Arkansas-Little Rock', 'Iona', 'Fresno St.', 'Middle Tennessee St.', 'Hampton']}
+    ['Kansas', 'Villanova', 'Miami-Florida', 'California', 'Maryland',
+    'Arizona', 'Iowa', 'Colorado', 'Connecticut', 'Temple',
+    'Vanderbilt', 'Wichita St.', 'South Dakota State', 'Hawaii', 'Buffalo',
+    'N.C. Asheville', 'Austin Peay', 'Oregon', 'Oklahoma', 'Texas A&M',
+    'Duke', 'Baylor', 'Texas', 'Oregon St.', "St. Joseph's",
+    'Cincinnati', 'VCU', 'Northern Iowa', 'Yale', 'NC-Wilmington',
+    'Green Bay', 'Cal. State - Bakersfield', 'Holy Cross', 'Southern',
+        'North Carolina',
+    'Xavier', 'West Virginia', 'Kentucky', 'Indiana', 'Notre Dame',
+    'Wisconsin', 'Southern California', 'Providence', 'Pittsburgh', 'Michigan',
+    'Tulsa', 'Chattanooga', 'Stony Brook', 'Stephen F. Austin', 'Weber St.',
+    'Florida Gulf Coast', 'Fairleigh Dickinson', 'Virginia', 'Michigan St',
+        'Utah',
+    'Iowa St.', 'Purdue', 'Seton Hall', 'Dayton', 'Texas Tech',
+    'Butler', 'Syracuse', 'Gonzaga', 'Arkansas-Little Rock', 'Iona',
+    'Fresno St.', 'Middle Tennessee St.', 'Hampton']}
     return tourney_teams[year]
 
 def predLookup(matchup, teamlist, predDict):
@@ -389,8 +435,11 @@ def predLookup(matchup, teamlist, predDict):
     INPUT: tuple of both team names in the desired matchup
     OUTPUT: dcitionary result of that matchup
     We need to check if the matchup is defined in the getAllPreds dict,
-        and return the prediction if it is. If it isn't there we also need to check with team order reversed. We will use 'fuzzywuzzy' partial string matching to find the closest team names if neither order is found.
-    Remember that if we reverse the order of teams, we have to flip the sign of the predicted point spread!
+        and return the prediction if it is. If it isn't there we also need to
+        check with team order reversed. We will use 'fuzzywuzzy' partial string
+        matching to find the closest team names if neither order is found.
+    Remember that if we reverse the order of teams, we have to flip the sign of
+        the predicted point spread!
     '''
     if matchup in predDict:
         return predDict[matchup]
@@ -406,24 +455,38 @@ def predLookup(matchup, teamlist, predDict):
         else:
             return "Sorry! We can't find those teams..."
 
-#############################################################
-# Things to do:
-#--------------
-#   X  -Reset shots made/attempted to shooting percentages
-#   X  -Scale features by season. So all features are [0-1]
-#   X  -Replace game stats with player avgs or performance preds.
-#        Otherwise we are looking at the stats of the game we are predicting on.
-#   X  -Trim out unnecessary features from reshaping in getStarters()
-#   X  -Set up Neural Net
-#         This will take output from getStarters() and use getPointSpread() as the target.
-#     -Set up KNN / Recommender to look for most similar matchups
-#     -Set up Train/Test splits
-#         how many seasons to look at?
-#   X      how to seperate tournament games from regular season?
-#     --Make tests?
-#############################################################
+
+def baseline_model():
+    '''
+    This is our function for building the Neral Net to make the point spread
+        predicions. It is a 'Sequential' model from Keras that has one input
+        layer, two hidden layers, and one output layer. It optimizes on MSE
+        using 'adam'.
+    We return the model to be used in the final pipeline.
+    '''
+    # create model
+    model = Sequential()
+    model.add(Dense(200, input_dim=X2_reg.shape[1], init='uniform',
+        activation='softsign'))
+    model.add(Dense(75, input_dim=X2_reg.shape[1], init='uniform',
+        activation='softsign'))
+    model.add(Dense(10, input_dim=X2_reg.shape[1], init='uniform',
+        activation='relu'))
+    model.add(Dense(1, init='uniform'))
+
+    # Compile model
+    model.compile(loss='mean_squared_error', optimizer='adam')
+    return model
+
+
+
+
 
 if __name__ == '__main__':
+    # fix random seed for reproducibility
+    seed = 23
+    np.random.seed(seed)
+
     df = pd.read_csv('data/2012-2013_gamedata.csv')
     df16 = pd.read_csv('data/2015-2016_gamedata.csv')
     df15 = pd.read_csv('data/2014-2015_gamedata.csv')
@@ -440,12 +503,17 @@ if __name__ == '__main__':
     df.reset_index(inplace=True)
     del df['index']
     #Split regular season data to train and tournement data to test:
-    df_reg, df_tourney = splitSeason(df)
+    # df_reg, df_tourney = splitSeason(df)
 
+    # Since the 2017 tournement hasn't started yet, we will just separate the
+    #   last few weeks into the 'df_tourney' test dataframe:
+    df_reg = df[df['DATE'] < '2017-02-25']
+    df_tourney = df[df['DATE'] >= '2017-02-25']
 
     ##########################
     #Let's switch to using Rolling Avg's
-    #   This will avoid leakage issues caused by using what should be unavailable game data
+    #This will avoid leakage issues caused by using what should be
+    #   unavailable game data
     ##########################
 
     # print "Getting Rolling Averages..."
@@ -459,9 +527,8 @@ if __name__ == '__main__':
 
     print "Replace tournament game data with each player's season avgs..."
     df_player = getPlayerAvg(df_reg)
-    df_tourney_season = replaceTourneyStats(df_tourney, df_player)#about 2 mins  per season#
-    #replace NaNs in 'DATE' column:
-    # df_tourney_season.replace(np.NAN, 'date', inplace=True)
+    df_tourney_season = replaceTourneyStats(df_tourney, df_player)
+    # ^^about 2 mins  per season#
     df_tourney_season['DATE'] = df_tourney['DATE']
 
     ############################
@@ -469,10 +536,10 @@ if __name__ == '__main__':
     ############################
 
     print "Reshaping data to conform to NN input..."
-    X_reg = NNreshape(df_reg, numPlayers=7)#about 30-45 mins per season...ouch!#
+    X_reg = NNreshape(df_reg, numPlayers=7)
+    # ^^about 30-45 mins per season...ouch!#
     X_tourney = NNreshape(df_tourney_season, numPlayers=7)
 
-    # y = getPointSpread(df, keepNan=False)
     y_reg = getPointSpread(df_reg, keepNan = False)
     y_tourney = getPointSpread(df_tourney, keepNan=False)
 
@@ -520,74 +587,50 @@ if __name__ == '__main__':
     # y2_tourney = pickle.load('data/TourneyTargetList.pkl')
 
 
-    # fix random seed for reproducibility
-    seed = 23
+
+    print "Start Neural Net training..."
+    # evaluate model with standardized dataset
     np.random.seed(seed)
+    estimators = []
+    estimators.append(('standardize', StandardScaler()))
+    estimators.append(('mlp', KerasRegressor(build_fn=baseline_model,
+        nb_epoch=200, batch_size=30, verbose=0)))
+    pipeline = Pipeline(estimators)
+    kfold = KFold(n_splits=3, random_state=seed)
+    results = cross_val_score(pipeline, X2_reg, y2_reg, cv=kfold)
+    print("Standardized: %.2f (%.2f) MSE" % (results.mean(), results.std()))
 
-    # X_train, X_test, y_train, y_test = train_test_split(X2, y2, test_size=0.18, random_state=seed)
+    pipeline.fit(X2_reg, y2_reg)
+    y_pred = pipeline.predict(X2_tourney)
+    mse = ((np.round(y_pred) - y2_tourney)**2).mean()
+    print '\n'*3
+    print '='*30
+    print "MSE:", mse
 
-def baseline_model():
-    # create model
-    model = Sequential()
-    model.add(Dense(200, input_dim=X2_reg.shape[1], init='uniform', activation='softsign'))
-    model.add(Dense(75, input_dim=X2_reg.shape[1], init='uniform', activation='softsign'))
-    model.add(Dense(10, input_dim=X2_reg.shape[1], init='uniform', activation='relu'))
-    model.add(Dense(1, init='uniform'))
+    print np.sqrt(results)
+    print np.sqrt(results).mean()
 
-    # Compile model
-    model.compile(loss='mean_squared_error', optimizer='adam')
-    return model
-
-
-print "Start Neural Net training..."
-# evaluate model with standardized dataset
-np.random.seed(seed)
-estimators = []
-estimators.append(('standardize', StandardScaler()))
-estimators.append(('mlp', KerasRegressor(build_fn=baseline_model, nb_epoch=200, batch_size=30, verbose=0)))
-pipeline = Pipeline(estimators)
-kfold = KFold(n_splits=3, random_state=seed)
-results = cross_val_score(pipeline, X2_reg, y2_reg, cv=kfold)
-print("Standardized: %.2f (%.2f) MSE" % (results.mean(), results.std()))
-
-pipeline.fit(X2_reg, y2_reg)
-y_pred = pipeline.predict(X2_tourney)
-mse = ((np.round(y_pred) - y2_tourney)**2).mean()
-print '\n'*3
-print '='*30
-print "MSE:", mse
-
-print np.sqrt(results)
-print np.sqrt(results).mean()
-
-win_loss = 1.*(np.sign(y_pred) == np.sign(y2_tourney)).sum()/len(y_pred)
-print "Win / Loss correct call pct: ", win_loss
-#Pickle the model:
-with open('data/Model.?e, f)
-with open('data/Model.pkl') as f:
-    model2 = pickle.load(f)
-
-#######
-#Plotting predictions vs. actual results:
-#######
-# plt.style.use('ggplot')
-# col = [np.sign(y_pred[x]) != np.sign(y2_tourney[x]) for x in range(len(y_pred))]
-# xrng = np.arange(-40,40,0.1)
-# yrng=xrng
-# plt.plot(xrng, yrng, 'r-', alpha=0.6)
-# plt.scatter(y_pred, y2_tourney, c=col, alpha=0.5)
+    win_loss = 1.*(np.sign(y_pred) == np.sign(y2_tourney)).sum()/len(y_pred)
+    print "Win / Loss correct call pct: ", win_loss
+    #Pickle the model:
+    with open('data/Model2016.pkl', 'w') as f:
+        pickle.dump(pipeline, f)
+    with open('data/Model.pkl') as f:
+        model2 = pickle.load(f)
 
 
-teams2016 = getTourneyTeams('2016')
-preds2016 = getAllPreds(teams2016, df_player, pipeline)
+    # teams2016 = getTourneyTeams('2016')
+    all_teams_2016 = df['TEAM'].unique()
+    all_preds_2016 = getAllPreds(all_teams_2016, df_player,
+                        numPlayers=7, pipeline)
 
-with open('data/teamList2016','w') as f:
-    pickle.dump(teams2016,f)
+    with open('data/teamList2016','w') as f:
+        pickle.dump(teams2016,f)
 
-with open('data/predDict2016','w') as f:
-    pickle.dump(preds2016,f)
-#Heteroskedasticity?
-#EDA!!
-#get data product running...Flask / shiny?
-#Website / README.md / blog?
-#output matrix of 351 x 351 teams and pred outcomes
+    with open('data/predDict2016','w') as f:
+        pickle.dump(preds2016,f)
+
+    all_team_imgs = next(os.walk('static/img/TeamLogos'))[2]
+    all_team_imgs = [re.sub('.png', '', s) for s in all_team_imgs]
+    with open('data/all_team_imgs','w') as f:
+        pickle.dump(all_team_imgs,f)

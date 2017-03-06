@@ -41,14 +41,15 @@ def grab_boxscores(years, directory, verbose_=True):
 
             base_url = 'http://sportsdata.wfmz.com'
             url3 = base_url + "/sports-scores/College-Basketball-Scores-Matchups.aspx?Year={0}&Period={1}&CurrentSeason={2}".format(yr, game_day, season)
+            print url3
             req3 = requests.get(url3)
             soup3 = BeautifulSoup(req3.text, 'html.parser')
             # boxscore = soup3.find_all('a', href=re.compile('^/basketball/ncaab-boxscores.aspx'))
 
             #Now we grab out all the links to each boxscore page for the day in question:
             boxscore = soup3.find_all('a', href=re.compile('/boxscore'))
-            if len(boxscores)==0:
-                break
+            if len(boxscore)==0:
+                continue
             if verbose_:
                 print '#', len(boxscore), ' games scraped.'
 

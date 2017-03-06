@@ -1625,10 +1625,10 @@
 
 	body {
 		background-color: #ea6834;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(45deg, #303030 15%, #7a6c5b 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #303030 15%, #7a6c5b 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, #303030 15%, #7a6c5b 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #303030 15%, #7a6c5b 85%);
+		background-image: url("images/overlay.png"), -moz-linear-gradient(65deg, #ea6834 15%, #ffd23b 85%);
+		background-image: url("images/overlay.png"), -webkit-linear-gradient(65deg, #ea6834 15%, #ffd23b 85%);
+		background-image: url("images/overlay.png"), -ms-linear-gradient(65deg, #ea6834 15%, #ffd23b 85%);
+		background-image: url("images/overlay.png"), linear-gradient(65deg, #ea6834 15%, #ffd23b 85%);
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1705,6 +1705,7 @@
 
 	p {
 		margin: 0 0 2em 0;
+		color: #333333;
 	}
 
 		p.content {
@@ -1841,7 +1842,7 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #ffffff;
+		color: #303030;
 	}
 
 	blockquote {
@@ -1909,6 +1910,7 @@
 		text-align: center;
 		text-decoration: none;
 		white-space: nowrap;
+		margin: 20px;
 	}
 
 		input[type="submit"].icon,
@@ -2234,8 +2236,8 @@
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #8cc9f0;
-			box-shadow: 0 0 0 1px #8cc9f0;
+			border-color: #7a6c5b;
+			box-shadow: 0 0 0 1px #7a6c5b;
 		}
 
 	.select-wrapper:before {
@@ -2289,6 +2291,7 @@
 /* Icon */
 
 	.icon {
+		color: #303030;
 		text-decoration: none;
 		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -2338,6 +2341,7 @@
 		}
 
 			.icon.alt:before {
+				color: #303030;
 				display: block;
 				font-size: 1.25em;
 				width: 2em;
@@ -2355,7 +2359,7 @@
 		}
 
 		.icon.style3 {
-			color: #a89cc8;
+			color: #7a6c5b;
 		}
 
 		.icon.style4 {
@@ -2363,7 +2367,7 @@
 		}
 
 		.icon.style5 {
-			color: #8cc9f0;
+			color: #ffd23b;
 		}
 
 		@media screen and (max-width: 1680px) {
@@ -2404,8 +2408,8 @@
 		}
 
 	.icon.alt {
-		border-color: rgba(255, 255, 255, 0.35);
-		color: #ffffff;
+		border-color: rgba(48, 48, 48, 0.55);
+		color: #303030;
 	}
 
 		.icon.alt:hover {
@@ -2645,6 +2649,7 @@
 
 		dl.alt dd {
 			margin: 0 0 0.85em 5.5em;
+			color: #333333;
 		}
 
 		dl.alt:after {
@@ -2658,7 +2663,7 @@
 	}
 
 	dl dt {
-		color: #ffffff;
+		color: #303030;
 	}
 
 /* Section/Article */
@@ -2678,10 +2683,9 @@
 			header.major h2:after {
 				display: block;
 				content: '';
-				width: 3.25em;
-				height: 2px;
+				height: 7px;
 				margin: 0.7em 0 1em 0;
-				border-radius: 2px;
+				border-radius: 3.5px;
 			}
 
 				section.special header.major h2:after, article.special header.major h2:after {
@@ -3018,6 +3022,7 @@
 			-webkit-flex: 1;
 			-ms-flex: 1;
 			flex: 1;
+		    text-align: center;
 		}
 
 			.spotlight .content > :last-child {
@@ -3106,6 +3111,7 @@
 		#header p {
 			font-size: 1.25em;
 			letter-spacing: -0.025em;
+			color: #303030;
 		}
 
 		#header.alt {
@@ -3117,14 +3123,14 @@
 			}
 
 			#header.alt > * {
-				-moz-transition: opacity 3s ease;
-				-webkit-transition: opacity 3s ease;
-				-ms-transition: opacity 3s ease;
-				transition: opacity 3s ease;
-				-moz-transition-delay: 0.5s;
-				-webkit-transition-delay: 0.5s;
-				-ms-transition-delay: 0.5s;
-				transition-delay: 0.5s;
+				-moz-transition: opacity 1s ease;
+				-webkit-transition: opacity 1s ease;
+				-ms-transition: opacity 1s ease;
+				transition: opacity 1s ease;
+				-moz-transition-delay: 0.25s;
+				-webkit-transition-delay: 0.25s;
+				-ms-transition-delay: 0.25s;
+				transition-delay: 0.25s;
 				opacity: 1;
 			}
 
@@ -3473,7 +3479,7 @@
 		#main select,
 		#main textarea {
 			background: rgba(222, 222, 222, 0.25);
-			border-color: #dddddd;
+			border-color: #505050;
 		}
 
 			#main input[type="text"]:focus,
@@ -3481,8 +3487,8 @@
 			#main input[type="email"]:focus,
 			#main select:focus,
 			#main textarea:focus {
-				border-color: #8cc9f0;
-				box-shadow: 0 0 0 1px #8cc9f0;
+				border-color: #7a6c5b;
+				box-shadow: 0 0 0 1px #7a6c5b;
 			}
 
 		#main .select-wrapper:before {
@@ -3534,15 +3540,15 @@
 		}
 
 		#main .icon.major {
-			border-color: #dddddd;
+			border-color: #505050;
 		}
 
 			#main .icon.major:before {
-				border-color: #dddddd;
+				border-color: #505050;
 			}
 
 		#main .icon.alt {
-			border-color: #dddddd;
+			border-color: #505050;
 			color: #636363;
 		}
 
@@ -3568,6 +3574,7 @@
 			background-image: -webkit-linear-gradient(90deg, #ea6834, #eb8b64, #ffd23b);
 			background-image: -ms-linear-gradient(90deg, #ea6834, #eb8b64, #ffd23b);
 			background-image: linear-gradient(90deg, #ea6834, #eb8b64, #ffd23b);
+			align: center;
 		}
 
 		#main table tbody tr {
