@@ -1,4 +1,4 @@
-Smarter Than Nate Silver
+##Smarter Than Nate Silver
 ========================
 
 #Making NCAA March Madness predictions
