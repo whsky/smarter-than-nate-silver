@@ -1,8 +1,8 @@
-##Smarter Than Nate Silver
+Smarter Than Nate Silver
 ========================
 
 #Making NCAA March Madness predictions
---------------------------------------
+
 **It's about that time of year again!**
 
 Time to fill out a bracket and pick the best college basketball team in America.
@@ -13,7 +13,7 @@ Tons of very smart people spend an inordinate amount of time trying to answer ex
 
 _So why the beef with Nate, dog?_
 
-Most of his predictions _(as well as others')_ rely heavily on stats like BPI and Elo scores which are themselves based mostly on the ranking of the team going into the tournament. So, it leans toward picking a winning team based on the higher seed. You can see it based on who fivthirtyeight has picked to be in the Final Four from the last three tournaments:
+Most of his predictions _(as well as others')_ rely heavily on stats like BPI, Power Ratings, and Elo scores which are themselves based mostly on the ranking of the team going into the tournament. So, it leans toward picking a winning team based on the better seeded. You can see it based on who fivthirtyeight has picked to be in the Final Four from the last couple of tournaments:
 
 |**Year**|**Team**|**Seed**|**Made Final Four**
 -----|-----|-----|:-----:|-----
@@ -31,13 +31,18 @@ Most of his predictions _(as well as others')_ rely heavily on stats like BPI an
 ||Mich. St.|4|No
 
 
-Hmmmm...that seems to be a lot of No.1 seeds. Perhaps they are seeded higher because they are the better team, so we should use this number, right?
+Hmmmm...that seems to be a lot of No.1 seeds. Perhaps they are seeded higher because they are the better team, so we _should_ use this number, right?
 
 Not exactly, ranking and placing teams in the opening round of the tournament is far more complicated, and even worse, dependent on a panel to decide where each team should rank.
 
 #A Rank Agnostic Approach
 
-Why not just ignore the rankings, and mine through historical data to evaluate team performance based solely on boxscore data?
+Why not just ignore the rankings, and mine through historical data to evaluate team performance based solely on player-level data?
+
+We can then use this game data to predict future matches based on the patterns from historical data. Machine Learning techniques like Neural Nets do a great job of finding exactly these type of patterns. So let's build a Multilayer Perceptron to take player data from regular season game data to predict the margin of victory (or point spread) of post-season games like the March Madness tournament.
+
+#Building the Neural Nets
+
 
 #What is a point-spread? - Charles K. McNeil wiki (JFK's math teacher)
 #A way of handicapping a lesser team to persuade bets to even-out on both sides
