@@ -1,4 +1,4 @@
-Smarter Than Nate Silver
+[Smarter Than Nate Silver](smarterthannatesilver.com:8080)
 ========================
 
 ##Making NCAA March Madness predictions
@@ -9,11 +9,11 @@ Time to fill out a bracket and pick the best college basketball team in America.
 
 _But, how should we pick who wins?_
 
-Tons of very smart people spend an inordinate amount of time trying to answer exactly this question. Nate Silver's website fivethirthyeight.com does a good job of showing probabilities of any team winning the tournament.
+Tons of very smart people spend an inordinate amount of time trying to answer exactly this question. Nate Silver's website [FiveThirthyEight.com](https://fivethirtyeight.com/sports/) does a good job of showing probabilities of any team winning the tournament.
 
 _So why the beef with Nate, dog?_
 
-Most of his predictions _(as well as others')_ rely heavily on stats like BPI, Power Ratings, and Elo scores which are themselves based mostly on the ranking of the team going into the tournament. So, it leans toward picking a winning team based on the better seeded. You can see it based on who FiveThirtyEight has picked to be in the Final Four from the last couple of tournaments:
+Most of his predictions _(as well as others')_ rely heavily on stats like BPI, Power Ratings, and Elo scores which are themselves based mostly on the ranking of the team going into the tournament. These rank-based stats take many names, sometimes it's "Strength of Schedule", or "Opponent Strength". But those stats skip over the fact that they have not defined what determines highly ranked team to begin with. So, models built on this information lean toward picking a winning team based on who is the better seed. You can see it this effect based on who [FiveThirtyEight](https://fivethirtyeight.com/sports/) has picked to be in the Final Four from the last couple of tournaments:
 
 |**Year**|**Team**|**Seed**|**Made Final Four**
 -----|-----|-----|:-----:|-----
@@ -41,9 +41,11 @@ Why not just ignore the rankings, and mine through historical data to evaluate t
 
 We can then use this game data to predict the outcome of future matches based on the patterns seen in the historical data. Machine Learning techniques like Neural Nets do a great job of finding these type of patterns. So let's build a Multilayer Perceptron to take player data from regular season game data to predict the margin of victory _(the point-spread)_ of post-season games like the March Madness tournament.
 
+This data was scraped for every game that had complete boxscores for the last decade using my `scrapey.py` file in this repo. Also, csv files for player data of each season are available in the `data` folder.
+
 ###What is a point-spread?
 
-Point-spreads were introduced by Charles K. McNeil _(who later became JFK's math teacher)_ as an attempt to balance out bets on both sides. For example, if Team1 is a strong favorite to beat Team2, you would expect that a majority of the bets will be for Team1 to win. This is a huge disadvantage to whomever is taking the bet. If Team1 wins, they have a massive amount of payouts to make. But, if we make the bet over whether Team1 will win _by more than an certain number of points_ rather than just if they will win. We now can move this handicap to persuade bets to take one side or the other and thus keep an even number of bets on both sides.
+Point-spreads were introduced by [Charles K. McNeil](https://en.wikipedia.org/wiki/Charles_K._McNeil) _(who later became JFK's math teacher)_ as an attempt to balance out betting between both outcomes. For example, if **Team 1** is a strong favorite to beat **Team 2**, you would expect that a majority of the bets will be for **Team 1** to win. This is a huge disadvantage to whomever is taking the bet. If **Team 1** wins, they have a massive amount of payouts to make. But, if we make the bet over whether **Team 1** will win _by more than an certain number of points_ rather than just if they will win. We now can move this handicap to persuade bets to take one side or the other and thus keep an even number of bets on both sides.
 
 _Wait, why would the people taking the bet want an even number on both sides?_
 
