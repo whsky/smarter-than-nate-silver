@@ -1,7 +1,7 @@
 Smarter Than Nate Silver
 ========================
 
-#Making NCAA March Madness predictions
+##Making NCAA March Madness predictions
 
 **It's about that time of year again!**
 
@@ -13,7 +13,7 @@ Tons of very smart people spend an inordinate amount of time trying to answer ex
 
 _So why the beef with Nate, dog?_
 
-Most of his predictions _(as well as others')_ rely heavily on stats like BPI, Power Ratings, and Elo scores which are themselves based mostly on the ranking of the team going into the tournament. So, it leans toward picking a winning team based on the better seeded. You can see it based on who fivthirtyeight has picked to be in the Final Four from the last couple of tournaments:
+Most of his predictions _(as well as others')_ rely heavily on stats like BPI, Power Ratings, and Elo scores which are themselves based mostly on the ranking of the team going into the tournament. So, it leans toward picking a winning team based on the better seeded. You can see it based on who FiveThirtyEight has picked to be in the Final Four from the last couple of tournaments:
 
 |**Year**|**Team**|**Seed**|**Made Final Four**
 -----|-----|-----|:-----:|-----
@@ -35,15 +35,20 @@ Hmmmm...that seems to be a lot of No.1 seeds. Perhaps they are seeded higher bec
 
 Not exactly, ranking and placing teams in the opening round of the tournament is far more complicated, and even worse, dependent on a panel to decide where each team should rank.
 
-#A Rank Agnostic Approach
+##A Rank Agnostic Approach
 
 Why not just ignore the rankings, and mine through historical data to evaluate team performance based solely on player-level data?
 
-We can then use this game data to predict future matches based on the patterns from historical data. Machine Learning techniques like Neural Nets do a great job of finding exactly these type of patterns. So let's build a Multilayer Perceptron to take player data from regular season game data to predict the margin of victory (or point spread) of post-season games like the March Madness tournament.
+We can then use this game data to predict the outcome of future matches based on the patterns seen in the historical data. Machine Learning techniques like Neural Nets do a great job of finding these type of patterns. So let's build a Multilayer Perceptron to take player data from regular season game data to predict the margin of victory _(the point-spread)_ of post-season games like the March Madness tournament.
 
-#Building the Neural Nets
+###What is a point-spread?
 
+Point-spreads were introduced by Charles K. McNeil _(who later became JFK's math teacher)_ as an attempt to balance out bets on both sides. For example, if Team1 is a strong favorite to beat Team2, you would expect that a majority of the bets will be for Team1 to win. This is a huge disadvantage to whomever is taking the bet. If Team1 wins, they have a massive amount of payouts to make. But, if we make the bet over whether Team1 will win _by more than an certain number of points_ rather than just if they will win. We now can move this handicap to persuade bets to take one side or the other and thus keep an even number of bets on both sides.
 
-#What is a point-spread? - Charles K. McNeil wiki (JFK's math teacher)
-#A way of handicapping a lesser team to persuade bets to even-out on both sides
-#If point-spreads tip too far one way - ARBITRAGE!
+_Wait, why would the people taking the bet want an even number on both sides?_
+
+Great question, because they want to minimize their exposure to risk. With balanced betting they can trust that regardless of the outcome, there is no risk of one side having to pay out more than the other. Don't worry though, they still get a piece of every bet they see, so they still make money.
+
+##Neural Nets
+
+Neural Nets adapt to the data being feed into them. They are adapting to what they see in relation to the desired outcome. This adaptation of the model is why these methods are referred to as Machine Learning. The model changes a neuron's weighted input that minimizes the error between the model output and desired output.
