@@ -20,7 +20,7 @@ Most of his predictions _(as well as others')_ rely heavily on stats like BPI, P
 
 ![Circular Reasoning](https://github.com/whsky/smarter-than-nate-silver/blob/master/README_images/CircularReasoning.png?raw=true)
 
-So, models built on this information lean toward picking a winning team based on who is the better seed. You can see it this effect based on who [FiveThirtyEight](https://fivethirtyeight.com/sports/) has picked to be in the Final Four from the last couple of tournaments:
+So, models built on this information lean toward picking a winning team based on who is the better seed. You can see this effect based on who [FiveThirtyEight](https://fivethirtyeight.com/sports/) has picked to be in the Final Four from the last couple of tournaments:
 
 |**Year**|**Team**|**Seed**|**Made Final Four**
 -----|-----|-----|:-----:|-----
