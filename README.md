@@ -1,7 +1,7 @@
 Smarter Than Nate Silver
 ========================
 
-![Web app](/README_images/Circular_Reasoning.tiff?raw=true)
+![Web app](https://github.com/whsky/smarter-than-nate-silver/blob/master/README_images/ScreenShot1.png?raw=true)
 
 [SmarterThanNateSilver.com](http://smarterthannatesilver.com:8080) - website is live!
 ##Making NCAA March Madness predictions
@@ -18,7 +18,7 @@ _So why the beef with Nate, dog?_
 
 Most of his predictions _(as well as others')_ rely heavily on stats like BPI, Power Ratings, and Elo scores which are themselves based mostly on the ranking of the team going into the tournament. These rank-based stats take many names, sometimes it's "Strength of Schedule", or "Opponent Strength". But those stats skip over the fact that they have not defined what determines highly ranked team to begin with.
 
-[[https://github.com/whsky/smarter-than-nate-silver/blob/master/README_images/Circular_Reasoning.tiff?raw=true]]
+![Circular Reasoning](https://github.com/whsky/smarter-than-nate-silver/blob/master/README_images/CircularReasoning.png?raw=true)
 
 So, models built on this information lean toward picking a winning team based on who is the better seed. You can see it this effect based on who [FiveThirtyEight](https://fivethirtyeight.com/sports/) has picked to be in the Final Four from the last couple of tournaments:
 
