@@ -71,3 +71,20 @@ def baseline_model():
     model.compile(loss='mean_squared_error', optimizer='adam')
     return model
 ```
+
+
+##2017 March Madness
+
+This same approach was used to model data from the 2016-2017 dataset. Results of all predictions _(all 351 tems playing each other, roughly 62,000 predictions)_ were computed and dumped into a python `dict` which allows fast access to results without the unnecessary re-modeling and re-predicting. Because `dict`s are hash-mapped, they are also incredible fast and web-friendly since they resemble JSON elements. These predictions get served over the web using a Flask app which you can find here: [SmarterThanNateSilver.com](http://smarterthannatesilver.com:8080)
+
+After **"Selection Sunday"** on March 12th, I will be filling out a bracket with choices made soley by my model, as well as predicted results for daily match-ups throughout the tournament.
+
+
+Contact
+-------
+
+Feel free to reach out if you are in the market for a data scientist!
+
+##Steve Iannaccone - Denver, CO
+[LinkedIn](https://www.linkedin.com/in/steve-iannaccone/)
+[GitHub](https://github.com/whsky)
