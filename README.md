@@ -34,7 +34,7 @@ So, models built on this information lean toward picking a winning team based on
 ||Arizona|2|No
 2014|Florida|1|Yes
 ||Arizona|1|No
-||Loisville|4|No
+||Louisville|4|No
 ||Mich. St.|4|No
 
 
