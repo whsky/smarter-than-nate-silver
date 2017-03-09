@@ -27,7 +27,7 @@ So, models built on this information lean toward picking a winning team based on
 2016|Kansas|1|No
 ||UNC|1|Yes
 ||Mich. St.|2|No
-||Oklahoma|2|No
+||Oklahoma|2|Yes
 2015|Kentucky|1|Yes
 ||Villanova|1|No
 ||Duke|1|Yes (won championship)
