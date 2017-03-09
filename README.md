@@ -1,6 +1,6 @@
-[Smarter Than Nate Silver](smarterthannatesilver.com:8080)
+Smarter Than Nate Silver
 ========================
-
+[SmarterThanNateSilver.com](smarterthannatesilver.com:8080) - website is live!
 ##Making NCAA March Madness predictions
 
 **It's about that time of year again!**
@@ -53,4 +53,21 @@ Great question, because they want to minimize their exposure to risk. With balan
 
 ##Neural Nets
 
-Neural Nets adapt to the data being feed into them. They are adapting to what they see in relation to the desired outcome. This adaptation of the model is why these methods are referred to as Machine Learning. The model changes a neuron's weighted input that minimizes the error between the model output and desired output.
+Neural Nets _(NN)_ adapt to the data being feed into them. They are adapting to what they see in relation to the desired outcome. This adaptation of the model is why these methods are referred to as Machine Learning. The model changes a neuron's weighted input that minimizes the error between the model output and desired output.
+
+To build the Multilayer Perceptron NN I used Keras and followed a lot of what Jason Brownlee blogged about on [Machine Learning Mastery](http://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/). Because we are concerned with predicting point_spreads, this is a regression model. I used a deep network in the hopes that it would allow the NN to find more interactive patterns in the player stats, like an underlying synergy or "team-i-ness". I tested just under 100 different parameter tweaks (e.g. number of hidden layers, width of input layer, activation function, and epoch/batch sizes). Using the following model I achieved the lowest RMSE and highest percentange of correct calls on game winner:
+
+```python
+def baseline_model():
+    model = Sequential()
+    model.add(Dense(200, input_dim=X2_reg.shape[1], init='uniform',
+        activation='softsign'))
+    model.add(Dense(75, input_dim=X2_reg.shape[1], init='uniform',
+        activation='softsign'))
+    model.add(Dense(10, input_dim=X2_reg.shape[1], init='uniform',
+        activation='relu'))
+    model.add(Dense(1, init='uniform'))
+
+    model.compile(loss='mean_squared_error', optimizer='adam')
+    return model
+```
