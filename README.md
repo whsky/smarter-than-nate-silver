@@ -1,6 +1,6 @@
 Smarter Than Nate Silver
 ========================
-[SmarterThanNateSilver.com](smarterthannatesilver.com:8080) - website is live!
+[SmarterThanNateSilver.com](http://smarterthannatesilver.com:8080) - website is live!
 ##Making NCAA March Madness predictions
 
 **It's about that time of year again!**
