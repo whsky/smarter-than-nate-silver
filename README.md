@@ -85,6 +85,8 @@ Contact
 
 Feel free to reach out if you are in the market for a data scientist!
 
-##Steve Iannaccone - Denver, CO
+###Steve Iannaccone - Denver, CO
+
 [LinkedIn](https://www.linkedin.com/in/steve-iannaccone/)
+
 [GitHub](https://github.com/whsky)
