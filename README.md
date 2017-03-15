@@ -4,6 +4,7 @@ Smarter Than Nate Silver
 ![Web app](https://github.com/whsky/smarter-than-nate-silver/blob/master/README_images/ScreenShot1.png?raw=true)
 
 [SmarterThanNateSilver.com](http://smarterthannatesilver.com:8080) - website is live!
+
 ##Making NCAA March Madness predictions
 
 **It's about that time of year again!**
