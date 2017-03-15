@@ -3,11 +3,11 @@ Smarter Than Nate Silver
 
 ![Web app](https://github.com/whsky/smarter-than-nate-silver/blob/master/README_images/ScreenShot1.png?raw=true)
 
-[SmarterThanNateSilver.com](http://smarterthannatesilver.com:8080) - website is live!
+[SmarterThanNateSilver.com](http://smarterthannatesilver.com) - website is live!
 
 
-##Making NCAA March Madness predictions
-
+Making NCAA March Madness predictions
+-------------------------------------
 **It's about that time of year again!**
 
 Time to fill out a bracket and pick the best college basketball team in America.
@@ -44,7 +44,8 @@ Hmmmm...that seems to be a lot of No.1 seeds. Perhaps they are seeded higher bec
 
 Not exactly, ranking and placing teams in the opening round of the tournament is far more complicated, and even worse, dependent on a panel to decide where each team should rank.
 
-##A Rank Agnostic Approach
+A Rank Agnostic Approach
+------------------------
 
 Why not just ignore the rankings, and mine through historical data to evaluate team performance based solely on player-level data?
 
@@ -52,7 +53,7 @@ We can then use this game data to predict the outcome of future matches based on
 
 This data was scraped for every game that had complete boxscores for the last decade using my `scrapey.py` file in this repo. Also, csv files for player data of each season are available in the `data` folder.
 
-###What is a point-spread?
+**What is a point-spread?**
 
 Point-spreads were introduced by [Charles K. McNeil](https://en.wikipedia.org/wiki/Charles_K._McNeil) _(who later became JFK's math teacher)_ as an attempt to balance out betting between both outcomes. For example, if **Team 1** is a strong favorite to beat **Team 2**, you would expect that a majority of the bets will be for **Team 1** to win. This is a huge disadvantage to whomever is taking the bet. If **Team 1** wins, they have a massive amount of payouts to make. But, if we make the bet over whether **Team 1** will win _by more than an certain number of points_ rather than just if they will win. We now can move this handicap to persuade bets to take one side or the other and thus keep an even number of bets on both sides.
 
@@ -60,7 +61,8 @@ _Wait, why would the people taking the bet want an even number on both sides?_
 
 Great question, because they want to minimize their exposure to risk. With balanced betting they can trust that regardless of the outcome, there is no risk of one side having to pay out more than the other. Don't worry though, they still get a piece of every bet they see, so they still make money.
 
-##Neural Nets
+Neural Nets
+-----------
 
 Neural Nets _(NN)_ adapt to the data being feed into them. They are adapting to what they see in relation to the desired outcome. This adaptation of the model is why these methods are referred to as Machine Learning. The model changes a neuron's weighted input that minimizes the error between the model output and desired output.
 
@@ -82,19 +84,23 @@ def baseline_model():
 ```
 
 
-##2017 March Madness
+2017 March Madness
+------------------
 
-This same approach was used to model data from the 2016-2017 dataset. Results of all predictions _(all 351 tems playing each other, roughly 62,000 predictions)_ were computed and dumped into a python `dict` which allows fast access to results without the unnecessary re-modeling and re-predicting. Because `dict`s are hash-mapped, they are also incredible fast and web-friendly since they resemble JSON elements. These predictions get served over the web using a Flask app which you can find here: [SmarterThanNateSilver.com](http://smarterthannatesilver.com:8080)
+This same approach was used to model data from the 2016-2017 dataset. Results of all predictions _(all 351 tems playing each other, roughly 62,000 predictions)_ were computed and dumped into a python `dict` which allows fast access to results without the unnecessary re-modeling and re-predicting. Because `dict`s are hash-mapped, they are also incredible fast and web-friendly since they resemble JSON elements. These predictions get served over the web using a Flask app which you can find here: [SmarterThanNateSilver.com](http://smarterthannatesilver.com)
 
-After **"Selection Sunday"** on March 12th, I will be filling out a bracket with choices made soley by my model, as well as predicted results for daily match-ups throughout the tournament.
+After **"Selection Sunday"** on March 12th, I will be filling out a bracket with choices made solely by my model, as well as predicted results for daily match-ups throughout the tournament.
 
+I have also modified this model to conform to Kaggle's "March Machine Learning Mania" so you can track how well it's holding up against other Data Science Nerds:
+
+[Kaggle Leaderboard](https://www.kaggle.com/c/march-machine-learning-mania-2017/leaderboard)
 
 Contact
 -------
 
 Feel free to reach out if you are in the market for a data scientist!
 
-###Steve Iannaccone - Denver, CO
+**Steve Iannaccone - Denver, CO**
 
 [LinkedIn](https://www.linkedin.com/in/steve-iannaccone/)
 
