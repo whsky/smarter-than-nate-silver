@@ -41,7 +41,7 @@ def grab_boxscores(years, directory, verbose_=True):
 
             base_url = 'http://sportsdata.wfmz.com'
             url3 = base_url + "/sports-scores/College-Basketball-Scores-Matchups.aspx?Year={0}&Period={1}&CurrentSeason={2}".format(yr, game_day, season)
-            print url3
+            # print url3
             req3 = requests.get(url3)
             soup3 = BeautifulSoup(req3.text, 'html.parser')
             # boxscore = soup3.find_all('a', href=re.compile('^/basketball/ncaab-boxscores.aspx'))
@@ -84,6 +84,6 @@ def grab_boxscores(years, directory, verbose_=True):
         if verbose_:
             print "Writing ", str(season), " game data to csv"
         filepath = directory + str(season) + '_gamedata.csv'
-        #We need to strip out any crazy chars to be able to write out our csv file (é, ü, etc...):
+        #We need to strip out any crazy chars to be able to write out our csv file (accents, umlauts, etc...):
         df = df.replace(r'[^\x00-\x7F]', '', regex=True)
         df.to_csv(filepath)
