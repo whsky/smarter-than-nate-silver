@@ -1,10 +1,12 @@
 ##################################################
-#   Feb. 2017
+#   March. 2020
 #
 # Webscraping to get all NCAA div1 basketball
 #   boxscores.
-# http://sportsdata.wfmz.com/ has boxscores for each
-#   game, but only listed one day at a time. :/
+# ~~http://sportsdata.wfmz.com/ has boxscores for each
+#   game, but only listed one day at a time.~~
+#
+# Had to update URL - now uses http://stats.tcpalm.com/
 #
 # Have no fear! scrapey.py to the rescue!  :D
 ##################################################
@@ -39,7 +41,8 @@ def grab_boxscores(years, directory, verbose_=True):
             elif dte.month <= 5:
                 season = str(dte.year - 1) + '-' + str(dte.year)
 
-            base_url = 'http://sportsdata.wfmz.com'
+            # base_url = 'http://sportsdata.wfmz.com'
+            base_url = 'http://stats.tcpalm.com'
             url3 = base_url + "/sports-scores/College-Basketball-Scores-Matchups.aspx?Year={0}&Period={1}&CurrentSeason={2}".format(yr, game_day, season)
             # print url3
             req3 = requests.get(url3)
