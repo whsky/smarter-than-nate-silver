@@ -125,7 +125,8 @@ def splitSeason(df):
                     '2014': '2014-03-18',
                     '2015': '2015-03-17',
                     '2016': '2016-03-15',
-                    '2017': '2017-03-14'}
+                    '2017': '2017-03-14',
+                    '2018': '2018-03-13'}
     if type(df['DATE'].iloc[0]) == str:
         tourney_year = datetime.strptime(max(df['DATE']), '%Y-%m-%d').year
     else:
@@ -487,17 +488,19 @@ if __name__ == '__main__':
     seed = 23
     np.random.seed(seed)
 
-    df = pd.read_csv('data/2012-2013_gamedata.csv')
-    df16 = pd.read_csv('data/2015-2016_gamedata.csv')
-    df15 = pd.read_csv('data/2014-2015_gamedata.csv')
+    df13 = pd.read_csv('data/2012-2013_gamedata.csv')
     df14 = pd.read_csv('data/2013-2014_gamedata.csv')
+    df15 = pd.read_csv('data/2014-2015_gamedata.csv')
+    df16 = pd.read_csv('data/2015-2016_gamedata.csv')
+    df17 = pd.read_csv('data/2016-2017_gamedata.csv')
+    df18 = pd.read_csv('data/2017-2018_gamedata.csv')
 
     # df = df.append([df14, df15, df16])
 
     ###############
     #Data clean-up:
     ###############
-    df = misterClean(df)
+    df = misterClean(df18)
 
     df = bench_warmers(df)#about 12 mins per season#
     df.reset_index(inplace=True)
@@ -507,8 +510,8 @@ if __name__ == '__main__':
 
     # Since the 2017 tournement hasn't started yet, we will just separate the
     #   last few weeks into the 'df_tourney' test dataframe:
-    df_reg = df[df['DATE'] < '2017-02-25']
-    df_tourney = df[df['DATE'] >= '2017-02-25']
+    df_reg = df[df['DATE'] < '2018-02-25']
+    df_tourney = df[df['DATE'] >= '2018-02-25']
 
     ##########################
     #Let's switch to using Rolling Avg's
@@ -559,7 +562,7 @@ if __name__ == '__main__':
     from sklearn.cross_validation import train_test_split
     from sklearn.metrics import confusion_matrix
 
-    print "Conerting dataframes to numpy arrays for NN..."
+    print "Converting dataframes to numpy arrays for NN..."
     X2_reg = X_reg.values
     X2_tourney = X_tourney.values
     y2_reg = np.array(y_reg)
@@ -622,7 +625,7 @@ if __name__ == '__main__':
     # teams2016 = getTourneyTeams('2016')
     all_teams_2016 = df['TEAM'].unique()
     all_preds_2016 = getAllPreds(all_teams_2016, df_player,
-                        numPlayers=7, pipeline)
+                        7, pipeline)
 
     with open('data/teamList2016','w') as f:
         pickle.dump(teams2016,f)

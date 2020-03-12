@@ -15,11 +15,11 @@ aS'Albany'
 p8
 aS'Alcorn St'
 p9
-aS'American University'
+aS'American U'
 p10
 aS'Appalachian St'
 p11
-aS'Arizona St'
+aS'Arizona State'
 p12
 aS'Arizona'
 p13
@@ -27,161 +27,161 @@ aS'Arkansas St'
 p14
 aS'Arkansas-Little Rock'
 p15
-aS'Arkansas'
+aS'Arkansas-Pine Bluff'
 p16
-aS'Army West Point'
+aS'Arkansas'
 p17
-aS'Auburn'
+aS'Army'
 p18
-aS'Austin Peay'
+aS'Auburn'
 p19
-aS'Ball State'
+aS'Austin Peay'
 p20
-aS'Baylor'
+aS'Ball St'
 p21
-aS'Belmont'
+aS'Baylor'
 p22
-aS'Bethune-Cookman'
+aS'Belmont'
 p23
-aS'Binghamton'
+aS'Bethune-Cookman'
 p24
-aS'Boise St'
+aS'Binghamton'
 p25
-aS'Boston College'
+aS'Boise St'
 p26
-aS'Boston University'
+aS'Boston College'
 p27
-aS'Bowling Green'
+aS'Boston U'
 p28
-aS'Bradley'
+aS'Bowling Green'
 p29
-aS'Brown'
+aS'Bradley'
 p30
-aS'Bryant'
+aS'Brigham Young'
 p31
-aS'Bucknell'
+aS'Brown'
 p32
-aS'Buffalo'
+aS'Bryant'
 p33
-aS'Butler'
+aS'Bucknell'
 p34
-aS'BYU'
+aS'Buffalo'
 p35
-aS'Cal Poly'
+aS'Butler'
 p36
-aS'Cal State - Bakersfield'
+aS'Cal Poly SLO'
 p37
-aS'Cal State Fullerton'
+aS'Cal St Fullerton'
 p38
-aS'California'
+aS'Cal State - Bakersfield'
 p39
-aS'Campbell'
+aS'California'
 p40
-aS'Canisius'
+aS'Campbell'
 p41
-aS'Central Arkansas'
+aS'Canisius'
 p42
-aS'Central Connecticut St'
+aS'Central Arkansas'
 p43
-aS'Central Michigan'
+aS'Central Conn St'
 p44
-aS'Charleston Southern'
+aS'Central Florida'
 p45
-aS'Charleston'
+aS'Central Michigan'
 p46
-aS'Charlotte'
+aS'Charleston Southern'
 p47
-aS'Chattanooga'
+aS'Charleston'
 p48
-aS'Chicago St'
+aS'Charlotte'
 p49
-aS'Cincinnati'
+aS'Chattanooga'
 p50
-aS'Citadel'
+aS'Chicago St'
 p51
-aS'Clemson'
+aS'Cincinnati'
 p52
-aS'Cleveland St'
+aS'Clemson'
 p53
-aS'Coastal Carolina'
+aS'Cleveland St'
 p54
-aS'Colgate'
+aS'Coastal Carolina'
 p55
-aS'Colorado St'
+aS'Colgate'
 p56
-aS'Colorado'
+aS'Colorado St'
 p57
-aS'Columbia'
+aS'Colorado'
 p58
-aS'Connecticut'
+aS'Columbia'
 p59
-aS'Coppin St'
+aS'Connecticut'
 p60
-aS'Cornell'
+aS'Coppin St'
 p61
-aS'Creighton'
+aS'Cornell'
 p62
-aS'CSUN'
+aS'Creighton'
 p63
-aS'Dartmouth'
+aS'CSU Northridge'
 p64
-aS'Davidson'
+aS'Dartmouth'
 p65
-aS'Dayton'
+aS'Davidson'
 p66
-aS'Delaware St'
+aS'Dayton'
 p67
-aS'Delaware'
+aS'Delaware State'
 p68
-aS'Denver'
+aS'Delaware'
 p69
-aS'DePaul'
+aS'Denver'
 p70
-aS'Detroit'
+aS'DePaul'
 p71
-aS'Drake'
+aS'Detroit'
 p72
-aS'Drexel'
+aS'Drake'
 p73
-aS'Duke'
+aS'Drexel'
 p74
-aS'Duquesne'
+aS'Duke'
 p75
-aS'East Carolina'
+aS'Duquesne'
 p76
-aS'East Tennessee St'
+aS'East Carolina'
 p77
-aS'Eastern Illinois'
+aS'East Tennessee St'
 p78
-aS'Eastern Kentucky'
+aS'Eastern Illinois'
 p79
-aS'Eastern Michigan'
+aS'Eastern Kentucky'
 p80
-aS'Eastern Washington'
+aS'Eastern Michigan'
 p81
-aS'Elon'
+aS'Eastern Washington'
 p82
-aS'Evansville'
+aS'Elon University'
 p83
-aS'Fairfield'
+aS'Evansville'
 p84
-aS'Fairleigh Dickinson'
+aS'Fairfield'
 p85
-aS'FGCU'
+aS'Fairleigh Dickinson'
 p86
-aS'FIU'
-p87
 aS'Florida A&M'
-p88
+p87
 aS'Florida Atlantic'
+p88
+aS'Florida Gulf Coast'
 p89
-aS'Florida St'
+aS'Florida International'
 p90
-aS'Florida'
+aS'Florida St'
 p91
-aS'Fordham'
+aS'Florida'
 p92
-aS'Fort Wayne'
+aS'Fordham'
 p93
 aS'Fresno St'
 p94
@@ -205,7 +205,7 @@ aS'Georgia'
 p103
 aS'Gonzaga'
 p104
-aS'Grambling St'
+aS'Grambling State'
 p105
 aS'Grand Canyon'
 p106
@@ -231,467 +231,467 @@ aS'Houston'
 p116
 aS'Howard'
 p117
-aS'Idaho St'
+aS'Idaho State'
 p118
 aS'Idaho'
 p119
 aS'Illinois St'
 p120
-aS'Illinois'
+aS'Illinois-Chicago'
 p121
-aS'Incarnate Word'
+aS'Illinois'
 p122
-aS'Indiana St'
+aS'Incarnate Word'
 p123
-aS'Indiana'
+aS'Indiana - Purdue'
 p124
-aS'Iona'
+aS'Indiana St'
 p125
-aS'Iowa St'
+aS'Indiana'
 p126
-aS'Iowa'
+aS'Iona'
 p127
-aS'IUPUI'
+aS'Iowa St'
 p128
-aS'Jackson St'
+aS'Iowa'
 p129
-aS'Jacksonville St'
+aS'IUPU - Ft Wayne'
 p130
-aS'Jacksonville'
+aS'Jackson State'
 p131
-aS'James Madison'
+aS'Jacksonville St'
 p132
-aS'Kansas St'
+aS'Jacksonville'
 p133
-aS'Kansas'
+aS'James Madison'
 p134
-aS'Kennesaw State'
+aS'Kansas St'
 p135
-aS'Kent St'
+aS'Kansas'
 p136
-aS'Kentucky'
+aS'Kennesaw St'
 p137
-aS'La Salle'
+aS'Kent St'
 p138
-aS'Lafayette'
+aS'Kentucky'
 p139
-aS'Lamar'
+aS'La Salle'
 p140
-aS'Lehigh'
+aS'Lafayette'
 p141
-aS'Liberty'
+aS'Lamar'
 p142
-aS'Lipscomb'
+aS'Lehigh'
 p143
-aS'LIU Brooklyn'
+aS'Liberty'
 p144
-aS'Long Beach St'
+aS'Lipscomb'
 p145
-aS'Longwood'
+aS'LIU Brooklyn'
 p146
-aS'Louisiana Tech'
+aS'Long Beach St'
 p147
-aS'Louisiana-Monroe'
+aS'Longwood'
 p148
-aS'Louisiana'
+aS'Louisiana State'
 p149
-aS'Louisville'
+aS'Louisiana Tech'
 p150
-aS'Loyola Chicago'
+aS'Louisiana-Lafayette'
 p151
-aS'Loyola Maryland'
+aS'Louisiana-Monroe'
 p152
-aS'Loyola Marymount'
+aS'Louisville'
 p153
-aS'LSU'
+aS'Loyola Marymount'
 p154
-aS'Maine'
+aS'Loyola-Chicago'
 p155
-aS'Manhattan'
+aS'Loyola-Maryland'
 p156
-aS'Marist'
+aS'Maine'
 p157
-aS'Marquette'
+aS'Manhattan'
 p158
-aS'Marshall'
+aS'Marist'
 p159
-aS'Maryland Eastern Shore'
+aS'Marquette'
 p160
-aS'Maryland'
+aS'Marshall'
 p161
-aS'Massachusetts-Lowell'
+aS'Maryland - E Shore'
 p162
-aS'Massachusetts'
+aS'Maryland'
 p163
-aS'McNeese State'
+aS'Massachusetts Lowell'
 p164
-aS'Memphis'
+aS'Massachusetts'
 p165
-aS'Mercer'
+aS'McNeese St'
 p166
-aS'Miami-Florida'
+aS'MD Baltimore City'
 p167
-aS'Miami-Ohio'
+aS'Memphis'
 p168
-aS'Michigan St'
+aS'Mercer'
 p169
-aS'Michigan'
+aS'Miami (OH)'
 p170
-aS'Middle Tennessee'
+aS'Miami-Florida'
 p171
-aS'Milwaukee'
+aS'Michigan St'
 p172
-aS'Minnesota'
+aS'Michigan'
 p173
-aS'Mississippi St'
+aS'Middle Tennessee St'
 p174
-aS'Mississippi Valley St'
+aS'Minnesota'
 p175
-aS'Missouri St'
+aS'Mississippi St'
 p176
-aS'Missouri'
+aS'Mississippi Valley State'
 p177
-aS'Monmouth'
+aS'Mississippi'
 p178
-aS'Montana St'
+aS'Missouri St'
 p179
-aS'Montana'
+aS'Missouri'
 p180
-aS'Morehead St'
+aS'Monmouth-NJ'
 p181
-aS'Morgan St'
+aS'Montana St'
 p182
-aS"Mount St Mary's"
+aS'Montana'
 p183
-aS'Murray State'
+aS'Morehead St'
 p184
-aS'Navy'
+aS'Morgan St'
 p185
-aS'NC Asheville'
+aS"Mount St Mary's"
 p186
-aS'Nebraska'
+aS'Murray St'
 p187
-aS'Nevada'
+aS'Navy'
 p188
-aS'New Hampshire'
+aS'NC Asheville'
 p189
-aS'New Mexico State'
+aS'NC State'
 p190
-aS'New Mexico'
+aS'NC-Greensboro'
 p191
-aS'New Orleans'
+aS'NC-Wilmington'
 p192
-aS'Niagara'
+aS'Nebraska Omaha'
 p193
-aS'Nicholls'
+aS'Nebraska'
 p194
-aS'NJIT'
+aS'Nevada'
 p195
-aS'Norfolk St'
+aS'New Hampshire'
 p196
-aS'North Carolina A&T'
+aS'New Jersey Tech'
 p197
-aS'North Carolina Central'
+aS'New Mexico St'
 p198
-aS'North Carolina St'
+aS'New Mexico'
 p199
-aS'North Carolina'
+aS'New Orleans'
 p200
-aS'North Dakota St'
+aS'Niagara'
 p201
-aS'North Dakota'
+aS'Nicholls State'
 p202
-aS'North Florida'
+aS'NoCarolina A&T'
 p203
-aS'North Texas'
+aS'Norfolk State'
 p204
-aS'Northeastern'
+aS'North Carolina Central'
 p205
-aS'Northern Arizona'
+aS'North Carolina'
 p206
-aS'Northern Colorado'
+aS'North Dakota State'
 p207
-aS'Northern Illinois'
+aS'North Dakota'
 p208
-aS'Northern Kentucky'
+aS'North Florida'
 p209
-aS'Northwestern St'
+aS'North Texas'
 p210
-aS'Northwestern'
+aS'Northeastern'
 p211
-aS'Notre Dame'
+aS'Northern Arizona'
 p212
-aS'Oakland'
+aS'Northern Colorado'
 p213
-aS'Ohio State'
+aS'Northern Illinois'
 p214
-aS'Ohio'
+aS'Northern Iowa'
 p215
-aS'Oklahoma St'
+aS'Northern Kentucky'
 p216
-aS'Oklahoma'
+aS'Northwestern St'
 p217
-aS'Old Dominion'
+aS'Northwestern'
 p218
-aS'Ole Miss'
+aS'Notre Dame'
 p219
-aS'Omaha'
+aS'Oakland'
 p220
-aS'Oral Roberts'
+aS'Ohio St'
 p221
-aS'Oregon St'
+aS'Ohio'
 p222
-aS'Oregon'
+aS'Oklahoma St'
 p223
-aS'Pacific'
+aS'Oklahoma'
 p224
-aS'Penn State'
+aS'Old Dominion'
 p225
-aS'Penn'
+aS'Oral Roberts'
 p226
-aS'Pepperdine'
+aS'Oregon St'
 p227
-aS'Pittsburgh'
+aS'Oregon'
 p228
-aS'Portland St'
+aS'Pacific'
 p229
-aS'Portland'
+aS'Penn St'
 p230
-aS'Prairie View A&M'
+aS'Pennsylvania'
 p231
-aS'Presbyterian'
+aS'Pepperdine'
 p232
-aS'Princeton'
+aS'Pittsburgh'
 p233
-aS'Providence'
+aS'Portland St'
 p234
-aS'Purdue'
+aS'Portland'
 p235
-aS'Quinnipiac'
+aS'Prairie View A&M'
 p236
-aS'Radford'
+aS'Presbyterian'
 p237
-aS'Rhode Island'
+aS'Princeton'
 p238
-aS'Rice'
+aS'Providence'
 p239
-aS'Richmond'
+aS'Purdue'
 p240
-aS'Rider'
+aS'Quinnipiac'
 p241
-aS'Robert Morris'
+aS'Radford'
 p242
-aS'Rutgers'
+aS'Rhode Island'
 p243
-aS'Sacramento St'
+aS'Rice'
 p244
-aS'Sacred Heart'
+aS'Richmond'
 p245
-aS"Saint Peter's"
+aS'Rider'
 p246
-aS'Sam Houston State'
+aS'Robert Morris'
 p247
-aS'Samford'
+aS'Rutgers'
 p248
-aS'San Diego St'
+aS'Sacramento State'
 p249
-aS'San Diego'
+aS'Sacred Heart'
 p250
-aS'San Francisco'
+aS'Saint Louis'
 p251
-aS'San Jose St'
+aS'Sam Houston St'
 p252
-aS'Santa Clara'
+aS'Samford'
 p253
-aS'Savannah State'
+aS'San Diego St'
 p254
-aS'Seattle'
+aS'San Diego'
 p255
-aS'Seton Hall'
+aS'San Francisco'
 p256
-aS'Siena'
+aS'San Jose St'
 p257
-aS'SIUE'
+aS'Santa Clara'
 p258
-aS'SMU'
+aS'Savannah State'
 p259
-aS'South Alabama'
+aS'SE Missouri St'
 p260
-aS'South Carolina St'
+aS'Seattle'
 p261
-aS'South Carolina'
+aS'Seton Hall'
 p262
-aS'South Dakota St'
+aS'Siena'
 p263
-aS'South Dakota'
+aS'SIU - Edwardsville'
 p264
-aS'South Florida'
+aS'South Alabama'
 p265
-aS'Southeast Missouri State'
+aS'South Carolina State'
 p266
-aS'Southeastern Louisiana'
+aS'South Carolina Upstate'
 p267
-aS'Southern California'
+aS'South Carolina'
 p268
-aS'Southern Illinois'
+aS'South Dakota State'
 p269
-aS'Southern Miss'
+aS'South Dakota'
 p270
-aS'Southern University'
+aS'South Florida'
 p271
-aS'Southern Utah'
+aS'Southeastern Louisiana'
 p272
-aS'St Bonaventure'
+aS'Southern California'
 p273
-aS'St Francis Brooklyn'
+aS'Southern Illinois'
 p274
-aS'St Francis U'
+aS'Southern Methodist'
 p275
-aS"St John's"
+aS'Southern Miss'
 p276
-aS"St Joseph's"
+aS'Southern Utah'
 p277
-aS'St Louis'
+aS'Southern'
 p278
-aS"St Mary's"
+aS'St Bonaventure'
 p279
-aS'Stanford'
+aS'St Francis (NY)'
 p280
-aS'Stephen F Austin'
+aS'St Francis (PA)'
 p281
-aS'Stetson'
+aS"St John's"
 p282
-aS'Stony Brook'
+aS"St Joseph's"
 p283
-aS'Syracuse'
+aS"St Mary's"
 p284
-aS'TCU'
+aS"St Peter's"
 p285
-aS'Temple'
+aS'Stanford'
 p286
-aS'Tennessee St'
+aS'Stephen F Austin'
 p287
-aS'Tennessee Tech'
+aS'Stetson'
 p288
-aS'Tennessee'
+aS'Stony Brook'
 p289
-aS'Texas A&M-Corpus Christi'
+aS'Syracuse'
 p290
-aS'Texas A&M'
+aS'Temple'
 p291
-aS'Texas Southern'
+aS'Tenn-Martin'
 p292
-aS'Texas State'
+aS'Tennessee St'
 p293
-aS'Texas Tech'
+aS'Tennessee Tech'
 p294
-aS'Texas-Rio Grande Valley'
+aS'Tennessee'
 p295
-aS'Texas'
+aS'Texas A&M CC'
 p296
-aS'Toledo'
+aS'Texas A&M'
 p297
-aS'Towson'
+aS'Texas Christian'
 p298
-aS'Troy'
+aS'Texas Rio Grande Valley'
 p299
-aS'Tulane'
+aS'Texas Southern'
 p300
-aS'Tulsa'
+aS'Texas State'
 p301
-aS'UAB'
+aS'Texas Tech'
 p302
-aS'UAPB'
+aS'Texas-Arlington'
 p303
-aS'UC Davis'
+aS'Texas-El Paso'
 p304
-aS'UC Irvine'
+aS'Texas-San Antonio'
 p305
-aS'UC Riverside'
+aS'Texas'
 p306
-aS'UC Santa Barbara'
+aS'The Citadel'
 p307
-aS'UCF'
+aS'Toledo'
 p308
-aS'UCLA'
+aS'Towson'
 p309
-aS'UIC'
+aS'Troy'
 p310
-aS'UMBC'
+aS'Tulane'
 p311
-aS'UMKC'
+aS'Tulsa'
 p312
-aS'UNCG'
+aS'UAB'
 p313
-aS'UNCW'
+aS'UC Davis'
 p314
-aS'UNI'
+aS'UC Irvine'
 p315
-aS'UNLV'
+aS'UC Riverside'
 p316
-aS'USC Upstate'
+aS'UC Santa Barbara'
 p317
-aS'UT Arlington'
+aS'UCLA'
 p318
-aS'UT Martin'
+aS'UMKC'
 p319
-aS'Utah St'
+aS'UNLV'
 p320
-aS'Utah Valley'
+aS'Utah St'
 p321
-aS'Utah'
+aS'Utah Valley'
 p322
-aS'UTEP'
+aS'Utah'
 p323
-aS'UTSA'
-p324
 aS'Valparaiso'
-p325
+p324
 aS'Vanderbilt'
-p326
+p325
 aS'VCU'
-p327
+p326
 aS'Vermont'
-p328
+p327
 aS'Villanova'
-p329
+p328
 aS'Virginia Tech'
-p330
+p329
 aS'Virginia'
-p331
+p330
 aS'VMI'
-p332
+p331
 aS'Wagner'
-p333
+p332
 aS'Wake Forest'
-p334
+p333
 aS'Washington St'
-p335
+p334
 aS'Washington'
-p336
+p335
 aS'Weber St'
-p337
+p336
 aS'West Virginia'
-p338
+p337
 aS'Western Carolina'
-p339
+p338
 aS'Western Illinois'
-p340
+p339
 aS'Western Kentucky'
-p341
+p340
 aS'Western Michigan'
-p342
+p341
 aS'Wichita St'
-p343
+p342
 aS'William & Mary'
-p344
+p343
 aS'Winthrop'
+p344
+aS'Wis-Milwaukee'
 p345
 aS'Wisconsin'
 p346
 aS'Wofford'
 p347
-aS'Wright State'
+aS'Wright St'
 p348
 aS'Wyoming'
 p349

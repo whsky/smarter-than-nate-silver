@@ -42,7 +42,7 @@ def grab_boxscores(years, directory, verbose_=True):
                 season = str(dte.year - 1) + '-' + str(dte.year)
 
             # base_url = 'http://sportsdata.wfmz.com'
-            base_url = 'http://stats.tcpalm.com'
+            base_url = 'http://stats.tcpalm.com/'
             url3 = base_url + "/sports-scores/College-Basketball-Scores-Matchups.aspx?Year={0}&Period={1}&CurrentSeason={2}".format(yr, game_day, season)
             # print url3
             req3 = requests.get(url3)
